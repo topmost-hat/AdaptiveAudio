@@ -11,8 +11,14 @@ config_version=5
 [application]
 
 config/name="adaptive-audio"
+run/main_scene="uid://g337ryy2x0qq"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://sprites/icon.svg"
+
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
 
 [physics]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dm44ka0b17yh6"
-path="res://.godot/imported/reversecymbal_c4.wav-f73b684129b888faf65d120382b906da.sample"
+path="res://.godot/imported/reversecymbal_c4.wav-dad75ac894c0155864df63b0ed0aec80.sample"
 
 [deps]
 
-source_file="res://sound/reversecymbal_c4.wav"
-dest_files=["res://.godot/imported/reversecymbal_c4.wav-f73b684129b888faf65d120382b906da.sample"]
+source_file="res://sound/oneshots/reversecymbal_c4.wav"
+dest_files=["res://.godot/imported/reversecymbal_c4.wav-dad75ac894c0155864df63b0ed0aec80.sample"]
 
 [params]
 
@@ -21,4 +21,4 @@ edit/normalize=false
 edit/loop_mode=0
 edit/loop_begin=0
 edit/loop_end=-1
-compress/mode=2
+compress/mode=0

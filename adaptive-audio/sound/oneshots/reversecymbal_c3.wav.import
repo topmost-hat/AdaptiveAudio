@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ccu7jvau2pg1j"
-path="res://.godot/imported/reversecymbal_c3.wav-7d6d5a392fcf4783b0c83a3719c92933.sample"
+path="res://.godot/imported/reversecymbal_c3.wav-b868864c661d569ec0cb6511e5183902.sample"
 
 [deps]
 
-source_file="res://sound/reversecymbal_c3.wav"
-dest_files=["res://.godot/imported/reversecymbal_c3.wav-7d6d5a392fcf4783b0c83a3719c92933.sample"]
+source_file="res://sound/oneshots/reversecymbal_c3.wav"
+dest_files=["res://.godot/imported/reversecymbal_c3.wav-b868864c661d569ec0cb6511e5183902.sample"]
 
 [params]
 
@@ -21,4 +21,4 @@ edit/normalize=false
 edit/loop_mode=0
 edit/loop_begin=0
 edit/loop_end=-1
-compress/mode=2
+compress/mode=0
