@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://g337ryy2x0qq"]
+
+[ext_resource type="Script" uid="uid://u6skcjmu2ywf" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://dgx3lry0m8if3" path="res://scripts/world.gd" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://dk3wakqy0f7yb" path="res://scripts/gui.gd" id="3_sugp2"]
+
+[node name="Main" type="Node" unique_id=1906151874]
+script = ExtResource("1_o5qli")
+
+[node name="World" type="Node2D" parent="." unique_id=1325953613]
+script = ExtResource("2_0wfyh")
+
+[node name="GUI" type="Control" parent="." unique_id=2072730718]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_sugp2")
