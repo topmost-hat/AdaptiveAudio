@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c16f26dua5whq"]
+
+[ext_resource type="Script" uid="uid://bd6r6cbvkqofo" path="res://scenes/audio_manager.gd" id="1_02gw7"]
+[ext_resource type="AudioStream" uid="uid://b7hjvitk6tr07" path="res://sound/music/electricgrand.wav" id="1_kq7b2"]
+[ext_resource type="AudioStream" uid="uid://cyqqnna8ovu1q" path="res://sound/music/fmorgan.wav" id="2_02gw7"]
+[ext_resource type="AudioStream" uid="uid://cnfbxjpsxgj7c" path="res://sound/music/metalpipe.wav" id="3_ujhup"]
+[ext_resource type="AudioStream" uid="uid://ds6vlt81367kc" path="res://sound/music/timpani.wav" id="4_064dn"]
+[ext_resource type="AudioStream" uid="uid://cd27xql4k6ep6" path="res://sound/oneshots/bellsynth_high.wav" id="5_kq7b2"]
+[ext_resource type="AudioStream" uid="uid://clobu8un8b3fw" path="res://sound/oneshots/bellsynth_mid.wav" id="6_02gw7"]
+[ext_resource type="AudioStream" uid="uid://dh56xyqgtml1n" path="res://sound/oneshots/bellsynth_low.wav" id="7_ujhup"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_2y2jw"]
+stream_count = 4
+stream_0/stream = ExtResource("1_kq7b2")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("2_02gw7")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("4_064dn")
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("3_ujhup")
+stream_3/volume = 0.0
+
+[node name="AudioManager" type="Node" unique_id=456448821]
+script = ExtResource("1_02gw7")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1549762314]
+stream = SubResource("AudioStreamSynchronized_2y2jw")
+
+[node name="EnemySpawnSFXHigh" type="AudioStreamPlayer" parent="." unique_id=1727015947]
+stream = ExtResource("5_kq7b2")
+
+[node name="EnemySpawnSFXMid" type="AudioStreamPlayer" parent="." unique_id=2017546898]
+stream = ExtResource("6_02gw7")
+
+[node name="EnemySpawnSFXLow" type="AudioStreamPlayer" parent="." unique_id=1645579607]
+stream = ExtResource("7_ujhup")
+
+[node name="ButtonSFX" type="AudioStreamPlayer" parent="." unique_id=1372701089]

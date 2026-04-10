@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="adaptive-audio"
+config/name="adaptive_audio"
 run/main_scene="uid://g337ryy2x0qq"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://sprites/icon.svg"

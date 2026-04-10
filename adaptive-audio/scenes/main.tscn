@@ -10,9 +10,19 @@ script = ExtResource("1_o5qli")
 [node name="World" type="Node2D" parent="." unique_id=1325953613]
 script = ExtResource("2_0wfyh")
 
+[node name="Player" type="AnimatableBody2D" parent="World" unique_id=1335761684]
+
+[node name="EnemyManager" type="Node" parent="World" unique_id=1665238162]
+
+[node name="Enemy" type="AnimatableBody2D" parent="World/EnemyManager" unique_id=151168646]
+
 [node name="GUI" type="Control" parent="." unique_id=2072730718]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_sugp2")
+
+[node name="PauseMenu" type="Node" parent="GUI" unique_id=2114801153]
+
+[node name="EndScreen" type="Node" parent="GUI" unique_id=2105132543]
