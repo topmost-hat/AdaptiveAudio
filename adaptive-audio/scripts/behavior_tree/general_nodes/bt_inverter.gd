@@ -12,6 +12,6 @@ func evaluate() -> Status:
 		Status.FAILURE: return Status.SUCCESS
 		Status.SUCCESS: return Status.FAILURE
 		Status.RUNNING: return Status.RUNNING
-		
+	
 	push_warning("BT_Inverter: Child returned invalid status.")
 	return Status.NULL

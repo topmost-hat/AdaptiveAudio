@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bugcycs0rmqf3"]
+
+[ext_resource type="Script" uid="uid://bvfmh0as7vy2h" path="res://scripts/audio/audio_requirements.gd" id="1_sqirj"]
+[ext_resource type="Script" uid="uid://c3bs2wgcqvh3u" path="res://scripts/behavior_tree/general_nodes/bt_sequence.gd" id="2_kh1t6"]
+[ext_resource type="Script" uid="uid://c7n0jebuw8ivq" path="res://scripts/behavior_tree/world_state_nodes/bt_within_range.gd" id="5_kx4o6"]
+
+[node name="ElectricGrandReqs" type="Node" unique_id=1311422994]
+script = ExtResource("1_sqirj")
+metadata/_custom_type_script = "uid://bvfmh0as7vy2h"
+
+[node name="BT_Sequence" type="Node" parent="." unique_id=696448897]
+script = ExtResource("2_kh1t6")
+metadata/_custom_type_script = "uid://c3bs2wgcqvh3u"
+
+[node name="BT_WithinRange" type="Node" parent="BT_Sequence" unique_id=614410709]
+script = ExtResource("5_kx4o6")
+worldStateGetterName = "get_num_approachers"
+maxValue = 999999999.0
+metadata/_custom_type_script = "uid://c7n0jebuw8ivq"
