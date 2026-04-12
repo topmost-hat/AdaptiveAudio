@@ -2,6 +2,8 @@ class_name AudioManager
 extends Node
 
 #region Variables
+@export var lstn_beat: Array[AudioRequirements]
+
 @export var lstn_difficulty: Array[AudioRequirements]
 @export var lstn_player_health: Array[AudioRequirements]
 @export var lstn_num_approachers: Array[AudioRequirements]
@@ -32,6 +34,11 @@ func _ready() -> void:
 #endregion
 
 #region Signal receivers
+# MusicPlayer
+func rcvd_beat():
+	for listener: AudioRequirements in lstn_beat:
+		listener.evaluate()
+
 # world
 func rcvd_difficulty():
 	for listener: AudioRequirements in lstn_difficulty:

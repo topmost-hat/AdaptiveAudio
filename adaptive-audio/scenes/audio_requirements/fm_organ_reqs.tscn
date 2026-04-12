@@ -15,5 +15,6 @@ metadata/_custom_type_script = "uid://c3bs2wgcqvh3u"
 [node name="BT_WithinRange" type="Node" parent="BT_Sequence" unique_id=169790349]
 script = ExtResource("3_su572")
 worldStateGetterName = "get_num_shooters"
+minValue = 1.0
 maxValue = 999999999.0
 metadata/_custom_type_script = "uid://c7n0jebuw8ivq"

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dv864o32l2ict"]
+
+[ext_resource type="Script" uid="uid://bvfmh0as7vy2h" path="res://scripts/audio/audio_requirements.gd" id="1_wryah"]
+[ext_resource type="Script" uid="uid://c3bs2wgcqvh3u" path="res://scripts/behavior_tree/general_nodes/bt_sequence.gd" id="2_36qno"]
+[ext_resource type="Script" uid="uid://bcrkj4ujl53jc" path="res://scripts/behavior_tree/world_state_nodes/bt_is_true.gd" id="3_oc6ke"]
+
+[node name="BellSynthMidReqs" type="Node" unique_id=1343383818]
+script = ExtResource("1_wryah")
+metadata/_custom_type_script = "uid://bvfmh0as7vy2h"
+
+[node name="BT_Sequence" type="Node" parent="." unique_id=561266664]
+script = ExtResource("2_36qno")
+metadata/_custom_type_script = "uid://c3bs2wgcqvh3u"
+
+[node name="BT_IsTrue" type="Node" parent="BT_Sequence" unique_id=33457645]
+script = ExtResource("3_oc6ke")
+worldStateGetterName = "get_spawning_shooter"
+metadata/_custom_type_script = "uid://bcrkj4ujl53jc"

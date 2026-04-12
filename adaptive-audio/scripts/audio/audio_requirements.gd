@@ -5,6 +5,7 @@ extends Node
 @export var sync_stream_index: int = 0
 
 var btRoot: BT_Node
+var sync_stream: AudioStreamSynchronized = null
 
 func _ready() -> void:
 	if null == player or null == player.stream:
@@ -17,16 +18,19 @@ func _ready() -> void:
 		return
 	
 	if player.stream is AudioStreamSynchronized:
+		sync_stream = player.stream as AudioStreamSynchronized
 		if sync_stream_index < 0:
 			sync_stream_index = 0
 		elif sync_stream_index >= player.stream.stream_count:
 			sync_stream_index = player.stream.stream_count - 1
+	
+	evaluate()
 
 func evaluate():
 	var result: BT_Node.Status = btRoot.evaluate()
-	if player.stream is AudioStreamSynchronized:
+	if null != sync_stream:
 		if BT_Node.Status.SUCCESS == result:
-			player.stream.set_sync_stream_volume(sync_stream_index, 0.0)
+			sync_stream.set_sync_stream_volume(sync_stream_index, 0.0)
 		else:
-			player.stream.set_sync_stream_volume(sync_stream_index, -60.0)
+			sync_stream.set_sync_stream_volume(sync_stream_index, -60.0)
 	else: player.playing = result

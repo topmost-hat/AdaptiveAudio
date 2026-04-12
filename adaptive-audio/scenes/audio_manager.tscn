@@ -12,8 +12,10 @@
 [ext_resource type="AudioStream" uid="uid://dh56xyqgtml1n" path="res://sound/oneshots/bellsynth_low.wav" id="7_ujhup"]
 [ext_resource type="PackedScene" uid="uid://c0yj4owh0ha2p" path="res://scenes/audio_requirements/fm_organ_reqs.tscn" id="8_2y5yn"]
 [ext_resource type="PackedScene" uid="uid://f0kr7ut7hr4s" path="res://scenes/audio_requirements/metal_pipe_reqs.tscn" id="9_oucy0"]
-[ext_resource type="Script" uid="uid://bvfmh0as7vy2h" path="res://scripts/audio/audio_requirements.gd" id="9_ujhup"]
 [ext_resource type="PackedScene" uid="uid://c4waw7klv7oru" path="res://scenes/audio_requirements/timpani_reqs.tscn" id="10_cuol6"]
+[ext_resource type="PackedScene" uid="uid://csc8nhq53br60" path="res://scenes/audio_requirements/bell_synth_high_reqs.tscn" id="11_8igv3"]
+[ext_resource type="PackedScene" uid="uid://dv864o32l2ict" path="res://scenes/audio_requirements/bell_synth_mid_reqs.tscn" id="12_2y2jw"]
+[ext_resource type="PackedScene" uid="uid://x2e0y08vk527" path="res://scenes/audio_requirements/bell_synth_low_reqs.tscn" id="13_2y5yn"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_2y2jw"]
 stream_count = 4
@@ -26,8 +28,12 @@ stream_2/volume = 0.0
 stream_3/stream = ExtResource("4_064dn")
 stream_3/volume = 0.0
 
-[node name="AudioManager" type="Node" unique_id=1680541740]
+[node name="AudioManager" type="Node" unique_id=1680541740 node_paths=PackedStringArray("lstn_beat", "lstn_num_approachers", "lstn_num_shooters", "lstn_num_chargers")]
 script = ExtResource("1_02gw7")
+lstn_beat = [NodePath("SFX/BellSynthHigh/BellSynthHighReqs"), NodePath("SFX/BellSynthMid/BellSynthMidReqs"), NodePath("SFX/BellSynthLow/BellSynthLowReqs")]
+lstn_num_approachers = [NodePath("Music/MusicPlayer/ElectricGrandReqs")]
+lstn_num_shooters = [NodePath("Music/MusicPlayer/FMOrganReqs")]
+lstn_num_chargers = [NodePath("Music/MusicPlayer/TimpaniReqs")]
 metadata/_custom_type_script = "uid://bd6r6cbvkqofo"
 
 [node name="Music" type="Node" parent="." unique_id=2096130823]
@@ -54,33 +60,24 @@ sync_stream_index = 3
 
 [node name="SFX" type="Node" parent="." unique_id=1811735208]
 
-[node name="BellSynthHigh" type="AudioStreamPlayer" parent="SFX" unique_id=1727015947]
+[node name="BellSynthHigh" type="AudioStreamPlayer" parent="SFX" unique_id=1509132282]
 stream = ExtResource("5_kq7b2")
 
-[node name="BellSynthHighReqs" type="Node" parent="SFX/BellSynthHigh" unique_id=447969205 node_paths=PackedStringArray("player")]
-script = ExtResource("9_ujhup")
+[node name="BellSynthHighReqs" parent="SFX/BellSynthHigh" unique_id=1262097350 node_paths=PackedStringArray("player") instance=ExtResource("11_8igv3")]
 player = NodePath("..")
-metadata/_custom_type_script = "uid://bvfmh0as7vy2h"
 
-[node name="BellSynthMid" type="AudioStreamPlayer" parent="SFX" unique_id=2017546898]
+[node name="BellSynthMid" type="AudioStreamPlayer" parent="SFX" unique_id=1006028319]
 stream = ExtResource("6_02gw7")
 
-[node name="BellSynthMidReqs" type="Node" parent="SFX/BellSynthMid" unique_id=1618693260 node_paths=PackedStringArray("player")]
-script = ExtResource("9_ujhup")
+[node name="BellSynthMidReqs" parent="SFX/BellSynthMid" unique_id=1343383818 node_paths=PackedStringArray("player") instance=ExtResource("12_2y2jw")]
 player = NodePath("..")
-metadata/_custom_type_script = "uid://bvfmh0as7vy2h"
 
-[node name="BellSynthLow" type="AudioStreamPlayer" parent="SFX" unique_id=1645579607]
+[node name="BellSynthLow" type="AudioStreamPlayer" parent="SFX" unique_id=2115488590]
 stream = ExtResource("7_ujhup")
 
-[node name="BellSynthLowReqs" type="Node" parent="SFX/BellSynthLow" unique_id=1080619472 node_paths=PackedStringArray("player")]
-script = ExtResource("9_ujhup")
+[node name="BellSynthLowReqs" parent="SFX/BellSynthLow" unique_id=1118559500 node_paths=PackedStringArray("player") instance=ExtResource("13_2y5yn")]
 player = NodePath("..")
-metadata/_custom_type_script = "uid://bvfmh0as7vy2h"
 
 [node name="ButtonSFX" type="AudioStreamPlayer" parent="SFX" unique_id=1372701089]
 
-[node name="ButtonSFXReqs" type="Node" parent="SFX/ButtonSFX" unique_id=485177271 node_paths=PackedStringArray("player")]
-script = ExtResource("9_ujhup")
-player = NodePath("..")
-metadata/_custom_type_script = "uid://bvfmh0as7vy2h"
+[connection signal="music_beat" from="Music/MusicPlayer" to="." method="rcvd_beat"]

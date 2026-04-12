@@ -15,5 +15,6 @@ metadata/_custom_type_script = "uid://c3bs2wgcqvh3u"
 [node name="BT_WithinRange" type="Node" parent="BT_Sequence" unique_id=20669834]
 script = ExtResource("3_bp5b0")
 worldStateGetterName = "get_num_chargers"
+minValue = 1.0
 maxValue = 999999999.0
 metadata/_custom_type_script = "uid://c7n0jebuw8ivq"

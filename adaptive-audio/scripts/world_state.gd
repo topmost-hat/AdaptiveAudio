@@ -2,9 +2,6 @@ extends Node
 
 enum EnemyType { APPROACHER, SHOOTER, CHARGER }
 
-# TODO: preparing to spawn enemies (of each type)
-# needed for spawn noises AudioReqs
-
 #region signals
 signal game_paused_changed()
 signal difficulty_changed()
@@ -18,6 +15,10 @@ signal num_chargers_changed()
 signal num_approachers_killed_changed()
 signal num_shooters_killed_changed()
 signal num_chargers_killed_changed()
+
+signal spawning_approacher_changed()
+signal spawning_shooter_changed()
+signal spawning_charger_changed()
 #endregion
 
 #region variables
@@ -38,27 +39,14 @@ signal num_chargers_killed_changed()
 @export var _numApproachersKilled: int = 0
 @export var _numShootersKilled: int = 0
 @export var _numChargersKilled: int = 0
+
+@export_category("Enemies Spawning")
+@export var _spawningApproacher: bool = false
+@export var _spawningShooter: bool = false
+@export var _spawningCharger: bool = false
 #endregion
 
 #region Godot functions
-func _ready() -> void:
-	# world
-	reset_time_elapsed()
-	reset_difficulty()
-	
-	# player
-	reset_player_health()
-	
-	# enemies
-	reset_num_approachers()
-	reset_num_shooters()
-	reset_num_chargers()
-	
-	# enemies killed
-	reset_num_approachers_killed()
-	reset_num_shooters_killed()
-	reset_num_chargers_killed()
-	
 func _process(delta: float) -> void:
 	if(not _gamePaused): _timeElapsed += delta
 #endregion
@@ -95,6 +83,11 @@ func get_num_enemies_killed() -> int:
 		_numShootersKilled +
 		_numChargersKilled
 	)
+
+# enemies spawning
+func get_spawning_approacher() -> bool: return _spawningApproacher
+func get_spawning_shooter() -> bool: return _spawningShooter
+func get_spawning_charger() -> bool: return _spawningCharger
 #endregion
 
 #region Setters
@@ -102,6 +95,19 @@ func get_num_enemies_killed() -> int:
 func set_game_paused(setTo: bool):
 	_gamePaused = setTo
 	game_paused_changed.emit()
+
+# enemies spawning
+func set_spawning_approacher(setTo: bool):
+	_spawningApproacher = setTo
+	spawning_approacher_changed.emit()
+
+func set_spawning_shooter(setTo: bool):
+	_spawningShooter = setTo
+	spawning_shooter_changed.emit()
+
+func set_spawning_charger(setTo: bool):
+	_spawningCharger = setTo
+	spawning_charger_changed.emit()
 #endregion
 
 #region Adders
@@ -159,4 +165,33 @@ func reset_num_chargers() -> void: _numChargers = 0
 func reset_num_approachers_killed() -> void: _numApproachersKilled = 0
 func reset_num_shooters_killed() -> void: _numShootersKilled = 0
 func reset_num_chargers_killed() -> void: _numChargersKilled = 0
+
+# enemies spawning
+func reset_spawning_approacher() -> void: _spawningApproacher = false
+func reset_spawning_shooter() -> void: _spawningShooter = false
+func reset_spawning_charger() -> void: _spawningCharger = false
+
+func reset_all() -> void:
+	# world
+	reset_time_elapsed()
+	_gamePaused = true
+	reset_difficulty()
+	
+	# player
+	reset_player_health()
+	
+	# enemies
+	reset_num_approachers()
+	reset_num_shooters()
+	reset_num_chargers()
+	
+	# enemies killed
+	reset_num_approachers_killed()
+	reset_num_shooters_killed()
+	reset_num_chargers_killed()
+	
+	# enemies spawning
+	reset_spawning_approacher()
+	reset_spawning_shooter()
+	reset_spawning_charger()
 #endregion
