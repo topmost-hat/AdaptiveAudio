@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c16f26dua5whq"]
 
-[ext_resource type="Script" uid="uid://bd6r6cbvkqofo" path="res://scenes/audio_manager.gd" id="1_02gw7"]
+[ext_resource type="Script" uid="uid://bd6r6cbvkqofo" path="res://scripts/audio_manager.gd" id="1_02gw7"]
 [ext_resource type="AudioStream" uid="uid://b7hjvitk6tr07" path="res://sound/music/electricgrand.wav" id="1_kq7b2"]
 [ext_resource type="AudioStream" uid="uid://cyqqnna8ovu1q" path="res://sound/music/fmorgan.wav" id="2_02gw7"]
 [ext_resource type="AudioStream" uid="uid://cnfbxjpsxgj7c" path="res://sound/music/metalpipe.wav" id="3_ujhup"]

@@ -1,7 +1,5 @@
 extends Node
 
-enum EnemyType { APPROACH, SHOOT, SOMETHING }
-
 var sync_stream: AudioStreamSynchronized
 var music_loop_time: float
 
@@ -20,15 +18,15 @@ func _ready() -> void:
 func play_music(playing: bool) -> void:
 	music_player.playing = playing
 
-func set_enemy_layer_volume(enemy_type: EnemyType, volume: float) -> void:
+func set_enemy_layer_volume(enemy_type: WorldState.EnemyType, volume: float) -> void:
 	if 0 > enemy_type or sync_stream.stream_count <= enemy_type: return
 	sync_stream.set_sync_stream_volume(enemy_type, volume)
 
-func play_spawn_sfx(enemy_type: EnemyType) -> void:
+func play_spawn_sfx(enemy_type: WorldState.EnemyType) -> void:
 	match enemy_type:
-		EnemyType.APPROACH: enemy_spawn_sfx_high.play()
-		EnemyType.SHOOT: enemy_spawn_sfx_mid.play()
-		EnemyType.SOMETHING: enemy_spawn_sfx_low.play()
+		WorldState.EnemyType.APPROACHER: enemy_spawn_sfx_high.play()
+		WorldState.EnemyType.SHOOTER: enemy_spawn_sfx_mid.play()
+		WorldState.EnemyType.CHARGER: enemy_spawn_sfx_low.play()
 
 func play_button_sfx() -> void:
 	button_sfx.play()
