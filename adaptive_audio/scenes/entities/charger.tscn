@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dpfqfjd2hmkrd"]
+
+[ext_resource type="Script" uid="uid://6vtfi7msb3ss" path="res://scripts/entity/enemies/charger.gd" id="1_pxnrp"]
+[ext_resource type="Texture2D" uid="uid://cra0i60rvhoto" path="res://sprites/sprite_charger.png" id="2_xjf26"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eelcw"]
+radius = 32.0
+
+[node name="Charger" type="CharacterBody2D" unique_id=477793691]
+motion_mode = 1
+script = ExtResource("1_pxnrp")
+metadata/_custom_type_script = "uid://6vtfi7msb3ss"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=152665541]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xjf26")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1789775115]
+shape = SubResource("CircleShape2D_eelcw")

@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://g337ryy2x0qq"]
+
+[ext_resource type="PackedScene" uid="uid://c03l4hccoskdn" path="res://scenes/player.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://c16f26dua5whq" path="res://scenes/audio_manager.tscn" id="3_jyhfs"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0wfyh"]
+
+[node name="Main" type="Node" unique_id=1906151874]
+
+[node name="World" type="Node2D" parent="." unique_id=1325953613]
+
+[node name="WorldBoundaries" type="Node" parent="World" unique_id=1687859172]
+
+[node name="WorldBoundaryTop" type="StaticBody2D" parent="World/WorldBoundaries" unique_id=348866004]
+rotation = -3.1415925
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/WorldBoundaries/WorldBoundaryTop" unique_id=1121583118]
+shape = SubResource("WorldBoundaryShape2D_0wfyh")
+
+[node name="WorldBoundaryBottom" type="StaticBody2D" parent="World/WorldBoundaries" unique_id=1187029164]
+position = Vector2(0, 900)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/WorldBoundaries/WorldBoundaryBottom" unique_id=1573512490]
+shape = SubResource("WorldBoundaryShape2D_0wfyh")
+
+[node name="WorldBoundaryLeft" type="StaticBody2D" parent="World/WorldBoundaries" unique_id=1798824310]
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/WorldBoundaries/WorldBoundaryLeft" unique_id=2084730202]
+shape = SubResource("WorldBoundaryShape2D_0wfyh")
+
+[node name="WorldBoundaryRight" type="StaticBody2D" parent="World/WorldBoundaries" unique_id=1468630964]
+position = Vector2(1600, 0)
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/WorldBoundaries/WorldBoundaryRight" unique_id=27211134]
+shape = SubResource("WorldBoundaryShape2D_0wfyh")
+
+[node name="Player" parent="World" unique_id=855424437 instance=ExtResource("2_0wfyh")]
+position = Vector2(800, 450)
+
+[node name="EnemyManager" type="Node" parent="World" unique_id=1665238162]
+
+[node name="Enemy" type="Node" parent="World/EnemyManager" unique_id=724779391]
+
+[node name="GUI" type="Control" parent="." unique_id=2072730718]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PauseMenu" type="Node" parent="GUI" unique_id=2114801153]
+
+[node name="EndScreen" type="Node" parent="GUI" unique_id=2105132543]
+
+[node name="AudioManager" parent="." unique_id=1680541740 instance=ExtResource("3_jyhfs")]

@@ -1,37 +1,22 @@
 [gd_scene format=3 uid="uid://c03l4hccoskdn"]
 
 [ext_resource type="Script" uid="uid://nw17e7dtxwo" path="res://scripts/player/player.gd" id="1_3vyb7"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://sprites/icon.svg" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://q3vytcotwfe" path="res://sprites/sprite_player.png" id="2_dqkch"]
 [ext_resource type="Script" uid="uid://b16s1xfi6l0fv" path="res://scripts/player/player_input.gd" id="2_g2els"]
 [ext_resource type="Script" uid="uid://d3g0l1v8we3ro" path="res://scripts/player/player_movement.gd" id="3_qhqgy"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
-atlas = ExtResource("2_dqkch")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_tuyoq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qlg0r")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_dqkch"]
-radius = 20.0
+radius = 24.0
 
 [node name="Player" type="CharacterBody2D" unique_id=855424437]
 motion_mode = 1
 script = ExtResource("1_3vyb7")
 metadata/_custom_type_script = "uid://nw17e7dtxwo"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1383659164]
-position = Vector2(5.9604645e-08, 5.9604645e-08)
-scale = Vector2(0.328125, 0.328125)
-sprite_frames = SubResource("SpriteFrames_tuyoq")
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2115498740]
+position = Vector2(1.9073486e-06, 1.9073486e-06)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_dqkch")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=101844645]
 shape = SubResource("CircleShape2D_dqkch")

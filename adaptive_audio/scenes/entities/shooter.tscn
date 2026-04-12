@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b74ppp2eub6nv"]
+
+[ext_resource type="Script" uid="uid://dyo5rs4we05yb" path="res://scripts/entity/enemies/shooter.gd" id="1_ssunt"]
+[ext_resource type="Texture2D" uid="uid://bt5qap7pct6uu" path="res://sprites/sprite_shooter.png" id="2_m752s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eelcw"]
+radius = 32.0
+
+[node name="Shooter" type="CharacterBody2D" unique_id=951346464]
+motion_mode = 1
+script = ExtResource("1_ssunt")
+metadata/_custom_type_script = "uid://dyo5rs4we05yb"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=716890996]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_m752s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=72002374]
+shape = SubResource("CircleShape2D_eelcw")
