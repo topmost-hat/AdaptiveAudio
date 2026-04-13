@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://q3vytcotwfe" path="res://sprites/sprite_player.png" id="2_dqkch"]
 [ext_resource type="Script" uid="uid://b16s1xfi6l0fv" path="res://scripts/entities/player/player_input.gd" id="2_g2els"]
 [ext_resource type="Script" uid="uid://d3g0l1v8we3ro" path="res://scripts/entities/player/player_movement.gd" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://bch4facplqr3i" path="res://scripts/entities/player/player_shoot.gd" id="5_bjvvg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dqkch"]
 radius = 24.0
@@ -38,7 +39,12 @@ DECELERATION = 50.0
 TURNAROUND = 75.0
 metadata/_custom_type_script = "uid://d3g0l1v8we3ro"
 
+[node name="PlayerShoot" type="Node" parent="." unique_id=1922996102]
+script = ExtResource("5_bjvvg")
+metadata/_custom_type_script = "uid://bch4facplqr3i"
+
 [connection signal="input_down" from="PlayerInput" to="PlayerMovement" method="on_input_down"]
 [connection signal="input_left" from="PlayerInput" to="PlayerMovement" method="on_input_left"]
+[connection signal="input_lmb" from="PlayerInput" to="." method="_on_player_input_input_lmb"]
 [connection signal="input_right" from="PlayerInput" to="PlayerMovement" method="on_input_right"]
 [connection signal="input_up" from="PlayerInput" to="PlayerMovement" method="on_input_up"]

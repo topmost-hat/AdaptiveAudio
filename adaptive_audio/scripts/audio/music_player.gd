@@ -39,4 +39,7 @@ func rcvd_game_paused():
 	if WorldState.get_game_paused(): volume_db = -0.6
 	else: volume_db = 0.0
 
-func rcvd_player_health(): playing = WorldState.get_playerHealth() > 0
+func rcvd_player_health():
+	var playerHealth: int = WorldState.get_player_health()
+	if playing and 0 >= playerHealth: stop()
+	elif not playing and 0 < playerHealth: play()

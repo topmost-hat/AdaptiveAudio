@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://g337ryy2x0qq"]
 
-[ext_resource type="PackedScene" uid="uid://c03l4hccoskdn" path="res://scenes/entities/player.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://c03l4hccoskdn" path="res://scenes/entities/player/player.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://c16f26dua5whq" path="res://scenes/audio_manager.tscn" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://d1dn6f52okpb6" path="res://scenes/entities/enemies/enemy_bullet.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://btpbm7pd2f1ek" path="res://scenes/entities/enemies/approacher.tscn" id="3_tefeu"]
+[ext_resource type="PackedScene" uid="uid://dxyw161mcl0df" path="res://scenes/entities/enemies/shooter.tscn" id="4_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://d0lj1txpw4b5i" path="res://scenes/entities/enemies/charger.tscn" id="5_tipki"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0wfyh"]
 
@@ -41,7 +45,23 @@ position = Vector2(800, 450)
 
 [node name="EnemyManager" type="Node" parent="World" unique_id=1665238162]
 
-[node name="Enemy" type="Node" parent="World/EnemyManager" unique_id=724779391]
+[node name="BulletHigh" parent="World/EnemyManager" unique_id=1380676398 instance=ExtResource("3_sugp2")]
+position = Vector2(900, 350)
+
+[node name="BulletMid" parent="World/EnemyManager" unique_id=61555787 instance=ExtResource("3_sugp2")]
+position = Vector2(900, 450)
+
+[node name="BulletLow" parent="World/EnemyManager" unique_id=364805751 instance=ExtResource("3_sugp2")]
+position = Vector2(900, 550)
+
+[node name="Approacher" parent="World/EnemyManager" unique_id=862194995 instance=ExtResource("3_tefeu")]
+position = Vector2(700, 350)
+
+[node name="Shooter" parent="World/EnemyManager" unique_id=1718126948 instance=ExtResource("4_o6xl0")]
+position = Vector2(700, 450)
+
+[node name="Charger" parent="World/EnemyManager" unique_id=1842068953 instance=ExtResource("5_tipki")]
+position = Vector2(700, 550)
 
 [node name="GUI" type="Control" parent="." unique_id=2072730718]
 layout_mode = 3
