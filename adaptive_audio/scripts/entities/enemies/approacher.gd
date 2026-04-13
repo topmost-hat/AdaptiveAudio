@@ -1,7 +1,15 @@
+class_name Approacher
 extends Entity
 
 @export var speed: float = 100.0
 var target: Node2D
+
+func _ready() -> void:
+	WorldState.add_num_approachers(1)
+
+func _exit_tree() -> void:
+	WorldState.add_num_approachers(-1)
+	WorldState.add_num_approachers_killed(1)
 
 func _physics_process(delta: float) -> void:
 	if null == target: return
@@ -10,4 +18,4 @@ func _physics_process(delta: float) -> void:
 func hit(other: Node2D):
 	if other is Player:
 		WorldState.add_player_health(-1)
-		add_health(-1)
+		queue_free()

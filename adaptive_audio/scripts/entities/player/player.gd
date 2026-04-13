@@ -11,5 +11,5 @@ func _physics_process(_delta: float):
 	velocity = player_movement.move(velocity)
 	move_and_slide()
 
-func _on_player_input_input_lmb(pressed: bool, click_pos: Vector2) -> void:
-	if pressed: player_shoot.shoot(position, click_pos)
+func _on_music_beat() -> void:
+	player_shoot.shoot(position, get_global_mouse_position())

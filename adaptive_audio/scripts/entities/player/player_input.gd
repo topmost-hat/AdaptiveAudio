@@ -8,8 +8,6 @@ signal input_left(pressed: bool)
 signal input_down(pressed: bool)
 signal input_up(pressed: bool)
 
-signal input_lmb(pressed: bool, position: Vector2)
-
 # !!! Remember to replace "ui" input actions with your own input actions !!!
 @export_group("Input Action Names", "ACTION_NAME_")
 @export var ACTION_NAME_RIGHT: String = "ui_right"
@@ -17,28 +15,18 @@ signal input_lmb(pressed: bool, position: Vector2)
 @export var ACTION_NAME_DOWN: String = "ui_down"
 @export var ACTION_NAME_UP: String = "ui_up"
 
-#@export var ACTION_NAME_CLICK: String = ""
-
 var right_inputs: int = 0
 var left_inputs: int = 0
 var down_inputs: int = 0
 var up_inputs: int = 0
-
-#var click_inputs: int = 0
 
 func _unhandled_input(event: InputEvent):
 	# TODO OPTIONAL: if LOCAL multiplayer is desired, use event.device to
 	# determine which controller this input event came from, and exit function
 	# early if it does not correspond to this player
 	
-	# mouse press/unpress
-	if event is InputEventMouseButton:
-		var click_event = event as InputEventMouseButton
-		if MouseButton.MOUSE_BUTTON_LEFT == click_event.button_index:
-			input_lmb.emit(click_event.pressed, click_event.position)
-	
 	# pressed
-	elif event.is_action_pressed(ACTION_NAME_RIGHT):
+	if event.is_action_pressed(ACTION_NAME_RIGHT):
 		right_inputs += 1
 		if 1 == right_inputs: input_right.emit(true)
 	elif event.is_action_pressed(ACTION_NAME_LEFT):

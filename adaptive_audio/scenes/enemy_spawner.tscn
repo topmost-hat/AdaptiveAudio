@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://dofoojfqljubb"]
+
+[ext_resource type="Script" uid="uid://dicvjvn171xm7" path="res://scripts/enemy_spawner.gd" id="1_ks1gq"]
+[ext_resource type="Script" uid="uid://bsq1u5qhunoxs" path="res://scripts/resources/difficulty_info.gd" id="2_xl0gr"]
+
+[sub_resource type="Resource" id="Resource_devoi"]
+script = ExtResource("2_xl0gr")
+metadata/_custom_type_script = "uid://bsq1u5qhunoxs"
+
+[sub_resource type="Resource" id="Resource_ih16b"]
+script = ExtResource("2_xl0gr")
+min_beats_between_waves = 8
+max_enemies_in_wave = 3
+max_approachers = 5
+metadata/_custom_type_script = "uid://bsq1u5qhunoxs"
+
+[sub_resource type="Resource" id="Resource_31irv"]
+script = ExtResource("2_xl0gr")
+min_beats_between_waves = 6
+max_enemies_in_wave = 3
+max_approachers = 7
+max_shooters = 2
+metadata/_custom_type_script = "uid://bsq1u5qhunoxs"
+
+[sub_resource type="Resource" id="Resource_txvhj"]
+script = ExtResource("2_xl0gr")
+min_beats_between_waves = 4
+max_enemies_in_wave = 2
+max_approachers = 5
+max_shooters = 4
+metadata/_custom_type_script = "uid://bsq1u5qhunoxs"
+
+[sub_resource type="Resource" id="Resource_sukom"]
+script = ExtResource("2_xl0gr")
+min_beats_between_waves = 8
+max_enemies_in_wave = 5
+max_approachers = 5
+max_shooters = 4
+max_chargers = 1
+metadata/_custom_type_script = "uid://bsq1u5qhunoxs"
+
+[sub_resource type="Resource" id="Resource_tovkt"]
+script = ExtResource("2_xl0gr")
+min_beats_between_waves = 6
+max_enemies_in_wave = 4
+max_approachers = 7
+max_shooters = 5
+max_chargers = 2
+metadata/_custom_type_script = "uid://bsq1u5qhunoxs"
+
+[sub_resource type="Resource" id="Resource_xl0gr"]
+script = ExtResource("2_xl0gr")
+min_beats_between_waves = 4
+max_enemies_in_wave = 5
+max_approachers = 7
+max_shooters = 5
+max_chargers = 2
+metadata/_custom_type_script = "uid://bsq1u5qhunoxs"
+
+[sub_resource type="Resource" id="Resource_e1hw7"]
+script = ExtResource("2_xl0gr")
+min_beats_between_waves = 2
+max_enemies_in_wave = 3
+max_approachers = 7
+max_shooters = 5
+max_chargers = 2
+metadata/_custom_type_script = "uid://bsq1u5qhunoxs"
+
+[sub_resource type="Resource" id="Resource_22nel"]
+script = ExtResource("2_xl0gr")
+min_beats_between_waves = 2
+max_enemies_in_wave = 3
+max_approachers = 4
+max_shooters = 6
+max_chargers = 3
+metadata/_custom_type_script = "uid://bsq1u5qhunoxs"
+
+[sub_resource type="Resource" id="Resource_c01tg"]
+script = ExtResource("2_xl0gr")
+max_enemies_in_wave = 1
+max_approachers = 5
+max_shooters = 3
+max_chargers = 3
+metadata/_custom_type_script = "uid://bsq1u5qhunoxs"
+
+[sub_resource type="Resource" id="Resource_md2sj"]
+script = ExtResource("2_xl0gr")
+max_enemies_in_wave = 3
+max_shooters = 10
+max_chargers = 5
+metadata/_custom_type_script = "uid://bsq1u5qhunoxs"
+
+[node name="EnemySpawner" type="Node" unique_id=1528204426]
+script = ExtResource("1_ks1gq")
+player_safe_radius = 250.0
+difficultyInfo = Array[ExtResource("2_xl0gr")]([SubResource("Resource_devoi"), SubResource("Resource_ih16b"), SubResource("Resource_31irv"), SubResource("Resource_txvhj"), SubResource("Resource_sukom"), SubResource("Resource_tovkt"), SubResource("Resource_xl0gr"), SubResource("Resource_e1hw7"), SubResource("Resource_22nel"), SubResource("Resource_c01tg"), SubResource("Resource_md2sj")])

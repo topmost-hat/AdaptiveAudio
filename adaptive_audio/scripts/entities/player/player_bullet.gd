@@ -8,6 +8,7 @@ func _physics_process(delta: float) -> void:
 	position += direction * speed * delta
 
 func hit(other: Node2D):
-	add_health(-1)
 	if other is Entity:
+		if other is PlayerBullet: return
+		add_health(-1)
 		(other as Entity).add_health(-1)

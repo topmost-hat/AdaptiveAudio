@@ -32,7 +32,7 @@ metadata/_custom_type_script = "uid://b16s1xfi6l0fv"
 
 [node name="PlayerMovement" type="Node" parent="." unique_id=534710822]
 script = ExtResource("3_qhqgy")
-TARGET_SPEED = 200.0
+TARGET_SPEED = 300.0
 MAX_SPEED = 1000.0
 ACCELERATION = 50.0
 DECELERATION = 50.0
@@ -41,10 +41,10 @@ metadata/_custom_type_script = "uid://d3g0l1v8we3ro"
 
 [node name="PlayerShoot" type="Node" parent="." unique_id=1922996102]
 script = ExtResource("5_bjvvg")
+cone_angle_rad = 0.2
 metadata/_custom_type_script = "uid://bch4facplqr3i"
 
 [connection signal="input_down" from="PlayerInput" to="PlayerMovement" method="on_input_down"]
 [connection signal="input_left" from="PlayerInput" to="PlayerMovement" method="on_input_left"]
-[connection signal="input_lmb" from="PlayerInput" to="." method="_on_player_input_input_lmb"]
 [connection signal="input_right" from="PlayerInput" to="PlayerMovement" method="on_input_right"]
 [connection signal="input_up" from="PlayerInput" to="PlayerMovement" method="on_input_up"]

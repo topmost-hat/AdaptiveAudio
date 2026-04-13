@@ -9,7 +9,7 @@ radius = 32.0
 [node name="Shooter" type="Area2D" unique_id=1718126948]
 input_pickable = false
 script = ExtResource("1_ssunt")
-health = 3
+health = 2
 metadata/_custom_type_script = "uid://g5jfe7t8we1g"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1147911215]

@@ -10,7 +10,6 @@ radius = 16.0
 input_pickable = false
 script = ExtResource("1_4p4uo")
 speed = 500.0
-health = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1077061006]
 scale = Vector2(0.25, 0.25)
