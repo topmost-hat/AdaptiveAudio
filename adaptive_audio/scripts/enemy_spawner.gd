@@ -8,7 +8,8 @@ var approacher = preload("res://scenes/entities/enemies/approacher.tscn")
 var shooter = preload("res://scenes/entities/enemies/shooter.tscn")
 var charger = preload("res://scenes/entities/enemies/charger.tscn")
 
-var difficulty: int = 4
+var difficulty: int = 1
+var difficulty_beats: int = 0
 var cooldown_beats: int = 0
 
 func _on_music_beat():
@@ -20,6 +21,12 @@ func _on_music_beat():
 	if 0 >= cooldown_beats:
 		spawn_wave()
 		cooldown_beats = difficultyInfo[difficulty].min_beats_between_waves
+	
+	difficulty_beats += 1
+	if difficulty_beats >= difficultyInfo[difficulty].beats_to_next_difficulty:
+		difficulty += 1
+		difficulty_beats = 0
+		print(difficulty)
 
 func spawn_wave():
 	var enemies_remaining: int = difficultyInfo[difficulty].max_enemies_in_wave

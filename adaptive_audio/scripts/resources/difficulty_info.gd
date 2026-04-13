@@ -1,6 +1,9 @@
 class_name DifficultyInfo
 extends Resource
 
+@export_group("Difficulty Progression")
+@export var beats_to_next_difficulty: int
+
 @export_group("Spawn Aggression")
 @export var min_beats_between_waves: int
 @export var max_enemies_in_wave: int
