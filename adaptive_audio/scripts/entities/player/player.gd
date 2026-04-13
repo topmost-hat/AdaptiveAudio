@@ -1,5 +1,6 @@
 # Taken from a personal project by Atticus Clark
 
+class_name Player
 extends CharacterBody2D
 
 @onready var player_input: PlayerInput = $PlayerInput

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c03l4hccoskdn"]
 
-[ext_resource type="Script" uid="uid://nw17e7dtxwo" path="res://scripts/player/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://nw17e7dtxwo" path="res://scripts/entities/player/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://q3vytcotwfe" path="res://sprites/sprite_player.png" id="2_dqkch"]
-[ext_resource type="Script" uid="uid://b16s1xfi6l0fv" path="res://scripts/player/player_input.gd" id="2_g2els"]
-[ext_resource type="Script" uid="uid://d3g0l1v8we3ro" path="res://scripts/player/player_movement.gd" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://b16s1xfi6l0fv" path="res://scripts/entities/player/player_input.gd" id="2_g2els"]
+[ext_resource type="Script" uid="uid://d3g0l1v8we3ro" path="res://scripts/entities/player/player_movement.gd" id="3_qhqgy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dqkch"]
 radius = 24.0
