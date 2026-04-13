@@ -21,7 +21,7 @@ rotation = -3.1415925
 shape = SubResource("WorldBoundaryShape2D_0wfyh")
 
 [node name="WorldBoundaryBottom" type="StaticBody2D" parent="World/WorldBoundaries" unique_id=1187029164]
-position = Vector2(0, 900)
+position = Vector2(0, 450)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/WorldBoundaries/WorldBoundaryBottom" unique_id=1573512490]
 shape = SubResource("WorldBoundaryShape2D_0wfyh")
@@ -33,7 +33,7 @@ rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_0wfyh")
 
 [node name="WorldBoundaryRight" type="StaticBody2D" parent="World/WorldBoundaries" unique_id=1468630964]
-position = Vector2(1600, 0)
+position = Vector2(800, 0)
 rotation = -1.5707964
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/WorldBoundaries/WorldBoundaryRight" unique_id=27211134]
@@ -43,7 +43,7 @@ shape = SubResource("WorldBoundaryShape2D_0wfyh")
 player = NodePath("../Player")
 
 [node name="Player" parent="World" unique_id=855424437 instance=ExtResource("2_0wfyh")]
-position = Vector2(800, 450)
+position = Vector2(400, 225)
 
 [node name="GUI" type="Control" parent="." unique_id=2072730718]
 layout_mode = 3

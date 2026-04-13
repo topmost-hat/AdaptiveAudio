@@ -64,8 +64,10 @@ func spawn_charger(position: Vector2):
 	WorldState.set_spawning_charger(true)
 
 func select_spawn_pos() -> Vector2:
-	var position: Vector2 = Vector2(randf_range(32.0, 1568.0), randf_range(32.0, 868.0))
+	var position: Vector2 = Vector2(randf_range(32.0, 768.0), randf_range(32.0, 418.0))
 	var from_player: Vector2 = position - player.position
 	if absf(from_player.length()) < player_safe_radius:
-		position =  player.position + (from_player.normalized() * player_safe_radius)
+		position = player.position + (from_player.normalized() * player_safe_radius)
+		if position.x < 32.0 or position.x > 768.0 or position.y < 32.0 or position.y > 418.0:
+			position -= from_player.normalized() * 2
 	return position

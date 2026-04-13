@@ -4,15 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://coy6wtqlq5p7x" path="res://sprites/sprite_bullet.png" id="2_apond"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4pek5"]
-radius = 16.0
+radius = 8.0
 
 [node name="PlayerBullet" type="Area2D" unique_id=1716607548]
 input_pickable = false
 script = ExtResource("1_4p4uo")
-speed = 500.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1077061006]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.125, 0.125)
 texture = ExtResource("2_apond")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=378173394]

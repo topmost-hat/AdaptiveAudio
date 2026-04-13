@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://bch4facplqr3i" path="res://scripts/entities/player/player_shoot.gd" id="5_bjvvg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dqkch"]
-radius = 24.0
+radius = 12.0
 
 [node name="Player" type="CharacterBody2D" unique_id=855424437]
 motion_mode = 1
@@ -16,7 +16,7 @@ metadata/_custom_type_script = "uid://nw17e7dtxwo"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2115498740]
 position = Vector2(1.9073486e-06, 1.9073486e-06)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_dqkch")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=101844645]
@@ -32,8 +32,8 @@ metadata/_custom_type_script = "uid://b16s1xfi6l0fv"
 
 [node name="PlayerMovement" type="Node" parent="." unique_id=534710822]
 script = ExtResource("3_qhqgy")
-TARGET_SPEED = 300.0
-MAX_SPEED = 1000.0
+TARGET_SPEED = 150.0
+MAX_SPEED = 300.0
 ACCELERATION = 50.0
 DECELERATION = 50.0
 TURNAROUND = 75.0

@@ -42,13 +42,21 @@ func _unhandled_input(event: InputEvent):
 	# released
 	elif event.is_action_released(ACTION_NAME_RIGHT):
 		right_inputs -= 1
-		if 0 == right_inputs: input_right.emit(false)
+		if 0 >= right_inputs:
+			right_inputs = 0
+			input_right.emit(false)
 	elif event.is_action_released(ACTION_NAME_LEFT):
 		left_inputs -= 1
-		if 0 == left_inputs: input_left.emit(false)
+		if 0 >= left_inputs:
+			left_inputs = 0
+			input_left.emit(false)
 	elif event.is_action_released(ACTION_NAME_DOWN):
 		down_inputs -= 1
-		if 0 == down_inputs: input_down.emit(false)
+		if 0 >= down_inputs:
+			down_inputs = 0
+			input_down.emit(false)
 	elif event.is_action_released(ACTION_NAME_UP):
 		up_inputs -= 1
-		if 0 == up_inputs: input_up.emit(false)
+		if 0 >= up_inputs:
+			up_inputs = 0
+			input_up.emit(false)

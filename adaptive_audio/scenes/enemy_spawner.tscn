@@ -92,5 +92,5 @@ metadata/_custom_type_script = "uid://bsq1u5qhunoxs"
 
 [node name="EnemySpawner" type="Node" unique_id=1528204426]
 script = ExtResource("1_ks1gq")
-player_safe_radius = 250.0
+player_safe_radius = 150.0
 difficultyInfo = Array[ExtResource("2_xl0gr")]([SubResource("Resource_devoi"), SubResource("Resource_ih16b"), SubResource("Resource_31irv"), SubResource("Resource_txvhj"), SubResource("Resource_sukom"), SubResource("Resource_tovkt"), SubResource("Resource_xl0gr"), SubResource("Resource_e1hw7"), SubResource("Resource_22nel"), SubResource("Resource_c01tg"), SubResource("Resource_md2sj")])

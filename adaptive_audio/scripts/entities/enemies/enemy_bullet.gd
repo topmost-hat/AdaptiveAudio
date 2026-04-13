@@ -2,7 +2,7 @@ class_name EnemyBullet
 extends Entity
 
 @export var direction: Vector2
-@export var speed: float = 250.0
+@export var speed: float = 125.0
 
 func _physics_process(delta: float) -> void:
 	position += direction * speed * delta

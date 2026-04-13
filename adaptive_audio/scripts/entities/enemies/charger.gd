@@ -3,7 +3,7 @@ extends Entity
 
 # TODO: charge at the player quickly every fourth beat
 
-@export var speed: float = 100.0
+@export var speed: float = 50.0
 var target: Node2D
 var charge_destination: Vector2
 
