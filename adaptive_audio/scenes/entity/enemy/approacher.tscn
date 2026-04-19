@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://d17icwjc375j0"]
+
+[ext_resource type="Script" uid="uid://c2iecgpexog57" path="res://scripts/entity/enemy/approacher.gd" id="1_8btbl"]
+[ext_resource type="Texture2D" uid="uid://dv4djkdic7mte" path="res://sprites/sprite_approacher.png" id="2_nsuc1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5r1i8"]
+radius = 43.0
+
+[node name="Approacher" type="RigidBody2D" unique_id=1919097886]
+collision_layer = 2
+collision_mask = 7
+gravity_scale = 0.0
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 6
+script = ExtResource("1_8btbl")
+health = 3
+metadata/_custom_type_script = "uid://c2iecgpexog57"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=362972724]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_nsuc1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2089771295]
+shape = SubResource("CircleShape2D_5r1i8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

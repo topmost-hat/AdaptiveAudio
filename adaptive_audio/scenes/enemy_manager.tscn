@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bwcf7pkoexagd"]
+
+[ext_resource type="Script" uid="uid://d25dulj2po8cr" path="res://scripts/enemy_manager.gd" id="1_i6mmg"]
+[ext_resource type="Script" uid="uid://cwxj0lbhxlwmm" path="res://scripts/_resources/difficulty_info.gd" id="2_m8so1"]
+
+[sub_resource type="Resource" id="Resource_i6mmg"]
+script = ExtResource("2_m8so1")
+beats_to_next_difficulty = 10000000
+beats_between_waves = 1
+enemies_per_wave = 3
+metadata/_custom_type_script = "uid://cwxj0lbhxlwmm"
+
+[node name="EnemyManager" type="Node" unique_id=1570079357]
+script = ExtResource("1_i6mmg")
+_difficulty_info = Array[ExtResource("2_m8so1")]([SubResource("Resource_i6mmg")])

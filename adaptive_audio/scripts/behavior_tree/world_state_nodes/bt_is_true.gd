@@ -1,9 +1,13 @@
 class_name BT_IsTrue
 extends BT_Node
 
-@export var worldStateGetterName: String
+@export var fact_name: String
 
 func evaluate() -> Status:
-	var value = Callable(WorldState, worldStateGetterName).call()
+	var value: bool = WorldState.get_fact(fact_name)
+	if null == value:
+		push_error("Invalid fact name in BT WorldState node!")
+		return Status.FAILURE
+	
 	if value: return Status.SUCCESS
-	return Status.FAILURE
+	else: return Status.FAILURE

@@ -1,0 +1,35 @@
+class_name PlayerShoot
+extends Node
+
+signal player_shot
+
+@export var default_max_ammo: int
+@export var max_max_ammo: int
+
+var bullet = preload("res://scenes/entity/bullet/player_bullet.tscn")
+var ammo: int
+var max_ammo: int
+
+func _ready() -> void:
+	reset()
+
+func shoot(origin: Vector2, target: Vector2):
+	if 0 >= ammo: return
+	ammo -= 1
+	
+	var new_bullet: Bullet = (bullet.instantiate() as Bullet)
+	new_bullet.position = origin
+	new_bullet.direction = target - origin
+	get_tree().root.add_child(new_bullet)
+	
+	player_shot.emit()
+
+func reload(amount: int):
+	ammo = clampi(ammo + amount, 0, max_ammo)
+
+func set_max_ammo(amount: int):
+	max_ammo = clampi(max_ammo + amount, 1, max_max_ammo)
+
+func reset():
+	max_ammo = default_max_ammo
+	ammo = default_max_ammo

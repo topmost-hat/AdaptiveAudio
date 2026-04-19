@@ -1,63 +1,58 @@
-[gd_scene format=3 uid="uid://g337ryy2x0qq"]
+[gd_scene format=3 uid="uid://blipyu2sugqwl"]
 
-[ext_resource type="Script" uid="uid://0n2exrkr2ype" path="res://scripts/main.gd" id="1_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://dofoojfqljubb" path="res://scenes/enemy_spawner.tscn" id="1_sugp2"]
-[ext_resource type="PackedScene" uid="uid://c03l4hccoskdn" path="res://scenes/entities/player/player.tscn" id="2_0wfyh"]
-[ext_resource type="PackedScene" uid="uid://c16f26dua5whq" path="res://scenes/audio_manager.tscn" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://c03l4hccoskdn" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://bwcf7pkoexagd" path="res://scenes/enemy_manager.tscn" id="2_0wfyh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0wfyh"]
 
-[node name="Main" type="Node" unique_id=1906151874]
-script = ExtResource("1_jyhfs")
+[node name="Main" type="Node" unique_id=1833017427]
 
-[node name="World" type="Node2D" parent="." unique_id=1325953613]
+[node name="World" type="Node2D" parent="." unique_id=542582846]
 
-[node name="WorldBoundaries" type="Node" parent="World" unique_id=1687859172]
+[node name="WorldBoundaries" type="Node" parent="World" unique_id=1404807327]
 
-[node name="WorldBoundaryTop" type="StaticBody2D" parent="World/WorldBoundaries" unique_id=348866004]
-rotation = -3.1415925
+[node name="WorldBoundaryTop" type="StaticBody2D" parent="World/WorldBoundaries" unique_id=1805404051]
+position = Vector2(960, 0)
+collision_layer = 255
+collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/WorldBoundaries/WorldBoundaryTop" unique_id=1121583118]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/WorldBoundaries/WorldBoundaryTop" unique_id=1724813270]
+rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_0wfyh")
 
-[node name="WorldBoundaryBottom" type="StaticBody2D" parent="World/WorldBoundaries" unique_id=1187029164]
-position = Vector2(0, 450)
+[node name="WorldBoundaryLeft" type="StaticBody2D" parent="World/WorldBoundaries" unique_id=247437076]
+position = Vector2(0, 540)
+collision_layer = 255
+collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/WorldBoundaries/WorldBoundaryBottom" unique_id=1573512490]
-shape = SubResource("WorldBoundaryShape2D_0wfyh")
-
-[node name="WorldBoundaryLeft" type="StaticBody2D" parent="World/WorldBoundaries" unique_id=1798824310]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/WorldBoundaries/WorldBoundaryLeft" unique_id=244391890]
 rotation = 1.5707964
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/WorldBoundaries/WorldBoundaryLeft" unique_id=2084730202]
 shape = SubResource("WorldBoundaryShape2D_0wfyh")
 
-[node name="WorldBoundaryRight" type="StaticBody2D" parent="World/WorldBoundaries" unique_id=1468630964]
-position = Vector2(800, 0)
+[node name="WorldBoundaryBottom" type="StaticBody2D" parent="World/WorldBoundaries" unique_id=168834527]
+position = Vector2(960, 1080)
+collision_layer = 255
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/WorldBoundaries/WorldBoundaryBottom" unique_id=1792288622]
+shape = SubResource("WorldBoundaryShape2D_0wfyh")
+
+[node name="WorldBoundaryRight" type="StaticBody2D" parent="World/WorldBoundaries" unique_id=72412112]
+position = Vector2(1920, 540)
+collision_layer = 255
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/WorldBoundaries/WorldBoundaryRight" unique_id=552032592]
 rotation = -1.5707964
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/WorldBoundaries/WorldBoundaryRight" unique_id=27211134]
 shape = SubResource("WorldBoundaryShape2D_0wfyh")
 
-[node name="EnemySpawner" parent="World" unique_id=1528204426 node_paths=PackedStringArray("player") instance=ExtResource("1_sugp2")]
-player = NodePath("../Player")
+[node name="EnemyManager" parent="World" unique_id=1570079357 instance=ExtResource("2_0wfyh")]
 
-[node name="Player" parent="World" unique_id=855424437 instance=ExtResource("2_0wfyh")]
-position = Vector2(400, 225)
+[node name="Player" parent="World" unique_id=734362205 instance=ExtResource("1_o5qli")]
+position = Vector2(960, 540)
 
-[node name="GUI" type="Control" parent="." unique_id=2072730718]
+[node name="GUI" type="Control" parent="." unique_id=579825199]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="PauseMenu" type="Node" parent="GUI" unique_id=2114801153]
-
-[node name="EndScreen" type="Node" parent="GUI" unique_id=2105132543]
-
-[node name="AudioManager" parent="." unique_id=1680541740 instance=ExtResource("3_jyhfs")]
-
-[connection signal="music_beat" from="AudioManager/Music/MusicPlayer" to="World/EnemySpawner" method="_on_music_beat"]
-[connection signal="music_beat" from="AudioManager/Music/MusicPlayer" to="World/Player" method="_on_music_beat"]
-
-[editable path="AudioManager"]

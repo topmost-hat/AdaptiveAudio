@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cup2cnnjd3ulo"]
+
+[ext_resource type="Script" uid="uid://dt4l6t5ms2hsd" path="res://scripts/audio/music_layer_evaluator.gd" id="1_xf77r"]
+[ext_resource type="Script" uid="uid://814gvfssf6eh" path="res://scripts/behavior_tree/general_nodes/bt_sequence.gd" id="2_tfhrs"]
+[ext_resource type="Script" uid="uid://dv634egw6mjik" path="res://scripts/behavior_tree/world_state_nodes/bt_within_range_int.gd" id="3_xf77r"]
+
+[node name="ElectricGrandEvaluator" type="Node" unique_id=824440302]
+script = ExtResource("1_xf77r")
+metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
+
+[node name="BT_Sequence" type="Node" parent="." unique_id=867810656]
+script = ExtResource("2_tfhrs")
+metadata/_custom_type_script = "uid://814gvfssf6eh"
+
+[node name="BT_WithinRangeInt" type="Node" parent="BT_Sequence" unique_id=1484037783]
+script = ExtResource("3_xf77r")
+fact_name = "NumShooters"
+min_value = 1
+max_value = 5
+metadata/_custom_type_script = "uid://dv634egw6mjik"

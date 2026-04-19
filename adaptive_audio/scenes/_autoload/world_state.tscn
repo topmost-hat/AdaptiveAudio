@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cu5xxefmjm3w6"]
+
+[ext_resource type="Script" uid="uid://c8ofjmmdg2f6a" path="res://scripts/world_state/world_state.gd" id="1_ac8ds"]
+[ext_resource type="Script" uid="uid://dtjt4t16hoeyy" path="res://scripts/world_state/world_fact_int.gd" id="2_4kd35"]
+
+[node name="WorldState" type="Node" unique_id=1332216156]
+script = ExtResource("1_ac8ds")
+
+[node name="PlayerHealth" type="Node" parent="." unique_id=1863829848]
+script = ExtResource("2_4kd35")
+default = 3
+metadata/_custom_type_script = "uid://dtjt4t16hoeyy"
+
+[node name="NumApproachers" type="Node" parent="." unique_id=555545956]
+script = ExtResource("2_4kd35")
+metadata/_custom_type_script = "uid://dtjt4t16hoeyy"
+
+[node name="NumShooters" type="Node" parent="." unique_id=1064208146]
+script = ExtResource("2_4kd35")
+metadata/_custom_type_script = "uid://dtjt4t16hoeyy"
+
+[node name="NumChargers" type="Node" parent="." unique_id=1993825022]
+script = ExtResource("2_4kd35")
+metadata/_custom_type_script = "uid://dtjt4t16hoeyy"

@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://c03l4hccoskdn"]
+
+[ext_resource type="Script" uid="uid://tqmn3fbqfdrm" path="res://scripts/player/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://b16s1xfi6l0fv" path="res://scripts/player/player_input.gd" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://q3vytcotwfe" path="res://sprites/sprite_player.png" id="2_qlg0r"]
+[ext_resource type="Script" uid="uid://d3g0l1v8we3ro" path="res://scripts/player/player_movement.gd" id="3_dqkch"]
+[ext_resource type="Script" uid="uid://nwlpoo1cy1yn" path="res://scripts/player/player_shoot.gd" id="4_dqkch"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u8vuu"]
+radius = 40.0
+
+[node name="Player" type="CharacterBody2D" unique_id=734362205]
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_3vyb7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1583045295]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_qlg0r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1453008450]
+shape = SubResource("CircleShape2D_u8vuu")
+
+[node name="PlayerInput" type="Node" parent="." unique_id=1911740706]
+script = ExtResource("2_qhqgy")
+ACTION_NAME_RIGHT = "move_right"
+ACTION_NAME_LEFT = "move_left"
+ACTION_NAME_DOWN = "move_down"
+ACTION_NAME_UP = "move_up"
+
+[node name="PlayerMovement" type="Node" parent="." unique_id=172446954]
+script = ExtResource("3_dqkch")
+TARGET_SPEED = 500.0
+MAX_SPEED = 500.0
+ACCELERATION = 100.0
+DECELERATION = 100.0
+TURNAROUND = 150.0
+
+[node name="PlayerShoot" type="Node" parent="." unique_id=1954966760]
+script = ExtResource("4_dqkch")
+default_max_ammo = 4
+max_max_ammo = 10
+
+[connection signal="input_down" from="PlayerInput" to="PlayerMovement" method="on_input_down"]
+[connection signal="input_left" from="PlayerInput" to="PlayerMovement" method="on_input_left"]
+[connection signal="input_mouse" from="PlayerInput" to="." method="_on_mouse_click"]
+[connection signal="input_right" from="PlayerInput" to="PlayerMovement" method="on_input_right"]
+[connection signal="input_up" from="PlayerInput" to="PlayerMovement" method="on_input_up"]

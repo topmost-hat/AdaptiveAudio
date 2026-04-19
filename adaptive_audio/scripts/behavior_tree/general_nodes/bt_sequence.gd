@@ -4,7 +4,7 @@ extends BT_Node
 var children: Array[BT_Node]
 
 func _ready() -> void:
-	children.assign(find_children("*", "BT_Node"))
+	children.assign(find_children("*", "BT_Node", false))
 
 func evaluate() -> Status:
 	for child: BT_Node in children:

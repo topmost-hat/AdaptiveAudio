@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bc77yjlvwf0q7"]
+
+[ext_resource type="Script" uid="uid://ct0323m0ul0xc" path="res://scripts/entity/bullet/enemy_bullet.gd" id="1_ecci8"]
+[ext_resource type="Texture2D" uid="uid://coy6wtqlq5p7x" path="res://sprites/sprite_bullet.png" id="2_wd7co"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wd7co"]
+radius = 21.5
+
+[node name="EnemyBullet" type="RigidBody2D" unique_id=1383933200]
+collision_layer = 8
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_ecci8")
+max_speed = 500.0
+metadata/_custom_type_script = "uid://ct0323m0ul0xc"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=691194645]
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("2_wd7co")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1683885281]
+shape = SubResource("CircleShape2D_wd7co")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

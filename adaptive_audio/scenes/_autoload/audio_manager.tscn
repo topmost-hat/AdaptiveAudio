@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://ci7yfaj5wg0hy"]
+
+[ext_resource type="Script" uid="uid://bvfx52j7s0r5" path="res://scripts/audio/audio_manager.gd" id="1_yk7rq"]
+[ext_resource type="AudioStream" uid="uid://cxfv7sltg8d85" path="res://sounds/music/electricgrand.wav" id="2_8sc3y"]
+[ext_resource type="AudioStream" uid="uid://dwkm62xtje6wq" path="res://sounds/music/fmorgan.wav" id="3_83d3x"]
+[ext_resource type="AudioStream" uid="uid://ddqwkpwf4s5ya" path="res://sounds/music/metalpipe.wav" id="4_3c14a"]
+[ext_resource type="AudioStream" uid="uid://bd66jeau86h3n" path="res://sounds/music/timpani.wav" id="5_y67sp"]
+[ext_resource type="Script" uid="uid://lglsb6dlx1nx" path="res://scripts/audio/synced_music_player.gd" id="6_kte1m"]
+[ext_resource type="PackedScene" uid="uid://cup2cnnjd3ulo" path="res://scenes/music_layer_evaluators/electric_grand_evaluator.tscn" id="7_r5bs8"]
+[ext_resource type="PackedScene" uid="uid://cksxvnntr7c55" path="res://scenes/music_layer_evaluators/fm_organ_evaluator.tscn" id="8_3us56"]
+[ext_resource type="PackedScene" uid="uid://bhm07w3gywdsu" path="res://scenes/music_layer_evaluators/metal_pipe_evaluator.tscn" id="9_ul35v"]
+[ext_resource type="PackedScene" uid="uid://ddyiw3ksvj85d" path="res://scenes/music_layer_evaluators/timpani_evaluator.tscn" id="10_ns5r2"]
+[ext_resource type="AudioStream" uid="uid://ysjlodx34unu" path="res://sounds/sfx/bellsynth_high.wav" id="11_3fyhg"]
+[ext_resource type="AudioStream" uid="uid://cmt64rjyrfqxl" path="res://sounds/sfx/bellsynth_mid.wav" id="12_xqhs4"]
+[ext_resource type="AudioStream" uid="uid://wfrwo78riw2k" path="res://sounds/sfx/bellsynth_low.wav" id="13_cxlw2"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_snwlw"]
+stream_count = 4
+stream_0/stream = ExtResource("2_8sc3y")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("3_83d3x")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("4_3c14a")
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("5_y67sp")
+stream_3/volume = 0.0
+
+[node name="AudioManager" type="Node" unique_id=1420765597]
+script = ExtResource("1_yk7rq")
+
+[node name="SyncedMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1818235961]
+stream = SubResource("AudioStreamSynchronized_snwlw")
+script = ExtResource("6_kte1m")
+_bpm = 144.0
+metadata/_custom_type_script = "uid://lglsb6dlx1nx"
+
+[node name="MusicLayerEvaluators" type="Node" parent="." unique_id=1745254398]
+
+[node name="ElectricGrandEvaluator" parent="MusicLayerEvaluators" unique_id=824440302 instance=ExtResource("7_r5bs8")]
+
+[node name="FMOrganEvaluator" parent="MusicLayerEvaluators" unique_id=1515273296 instance=ExtResource("8_3us56")]
+sync_stream_index = 1
+
+[node name="MetalPipeEvaluator" parent="MusicLayerEvaluators" unique_id=253386477 instance=ExtResource("9_ul35v")]
+sync_stream_index = 2
+
+[node name="TimpaniEvaluator" parent="MusicLayerEvaluators" unique_id=1199353098 instance=ExtResource("10_ns5r2")]
+sync_stream_index = 3
+
+[node name="SFXPlayers" type="Node" parent="." unique_id=142333226]
+
+[node name="BellSynthHigh" type="AudioStreamPlayer" parent="SFXPlayers" unique_id=133165317]
+stream = ExtResource("11_3fyhg")
+
+[node name="BellSynthMid" type="AudioStreamPlayer" parent="SFXPlayers" unique_id=1179049302]
+stream = ExtResource("12_xqhs4")
+
+[node name="BellSynthLow" type="AudioStreamPlayer" parent="SFXPlayers" unique_id=1195835184]
+stream = ExtResource("13_cxlw2")
+
+[connection signal="music_beat" from="SyncedMusicPlayer" to="." method="_on_music_beat"]
