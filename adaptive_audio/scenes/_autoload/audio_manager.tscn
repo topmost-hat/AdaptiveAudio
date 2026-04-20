@@ -25,8 +25,11 @@ stream_2/volume = 0.0
 stream_3/stream = ExtResource("5_y67sp")
 stream_3/volume = 0.0
 
-[node name="AudioManager" type="Node" unique_id=1420765597]
+[node name="AudioManager" type="Node" unique_id=1420765597 node_paths=PackedStringArray("lstn_num_approachers", "lstn_num_shooters", "lstn_num_chargers")]
 script = ExtResource("1_yk7rq")
+lstn_num_approachers = [NodePath("MusicLayerEvaluators/FMOrganEvaluator")]
+lstn_num_shooters = [NodePath("MusicLayerEvaluators/ElectricGrandEvaluator")]
+lstn_num_chargers = [NodePath("MusicLayerEvaluators/TimpaniEvaluator")]
 
 [node name="SyncedMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1818235961]
 stream = SubResource("AudioStreamSynchronized_snwlw")

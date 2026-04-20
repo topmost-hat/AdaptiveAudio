@@ -1,17 +1,27 @@
 class_name DifficultyInfo
 extends Resource
 
-@export_group("Difficulty Progression")
 @export var beats_to_next_difficulty: int
-
-@export_group("Spawn Aggression")
 @export var beats_between_waves: int
 @export var beats_between_spawns: int
 @export var enemies_per_wave: int
+@export var spawn_queue: Array[Enemy.Type]
 
-@export_group("Enemy Maximums", "max_")
-@export var max_approachers: int
-@export var max_shooters: int
-@export var max_chargers: int
+var _max_approachers: int = 0
+var _max_shooters: int = 0
+var _max_chargers: int = 0
 
-func get_max_enemies() -> int: return max_approachers + max_shooters + max_chargers
+func count_enemies() -> void:
+	for i in spawn_queue.size():
+		match spawn_queue[i]:
+			Enemy.Type.APPROACHER: _max_approachers += 1
+			Enemy.Type.SHOOTER: _max_shooters += 1
+			Enemy.Type.CHARGER: _max_chargers += 1
+
+func max_enemies_of_type(type: Enemy.Type) -> int:
+	match type:
+		Enemy.Type.APPROACHER: return _max_approachers
+		Enemy.Type.SHOOTER: return _max_shooters
+		Enemy.Type.CHARGER: return _max_chargers
+	
+	return -1
