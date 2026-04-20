@@ -7,7 +7,7 @@ signal input_right(pressed: bool)
 signal input_left(pressed: bool)
 signal input_down(pressed: bool)
 signal input_up(pressed: bool)
-signal input_mouse(pressed: bool)
+signal input_lmb(pressed: bool)
 
 # !!! Remember to replace "ui" input actions with your own input actions !!!
 @export_group("Input Action Names", "ACTION_NAME_")
@@ -16,52 +16,26 @@ signal input_mouse(pressed: bool)
 @export var ACTION_NAME_DOWN: String = "ui_down"
 @export var ACTION_NAME_UP: String = "ui_up"
 
-var right_inputs: int = 0
-var left_inputs: int = 0
-var down_inputs: int = 0
-var up_inputs: int = 0
+var right_inputs: bool = false
+var left_inputs: bool = false
+var down_inputs: bool = false
+var up_inputs: bool = false
 
 func _unhandled_input(event: InputEvent):
 	# TODO OPTIONAL: if LOCAL multiplayer is desired, use event.device to
 	# determine which controller this input event came from, and exit function
 	# early if it does not correspond to this player
 	
+	# filter out echo events
+	if event.is_echo(): return
+	
 	# mouse
 	if event is InputEventMouseButton:
-		input_mouse.emit(event.pressed)
+		if MOUSE_BUTTON_LEFT == event.button_index:
+			input_lmb.emit(event.pressed)
 	
-	# pressed
-	elif event.is_action_pressed(ACTION_NAME_RIGHT):
-		right_inputs += 1
-		if 1 == right_inputs: input_right.emit(true)
-	elif event.is_action_pressed(ACTION_NAME_LEFT):
-		left_inputs += 1
-		if 1 == left_inputs: input_left.emit(true)
-	elif event.is_action_pressed(ACTION_NAME_DOWN):
-		down_inputs += 1
-		if 1 == down_inputs: input_down.emit(true)
-	elif event.is_action_pressed(ACTION_NAME_UP):
-		up_inputs += 1
-		if 1 == up_inputs: input_up.emit(true)
-	
-	# released
-	elif event.is_action_released(ACTION_NAME_RIGHT):
-		right_inputs -= 1
-		if 0 >= right_inputs:
-			right_inputs = 0
-			input_right.emit(false)
-	elif event.is_action_released(ACTION_NAME_LEFT):
-		left_inputs -= 1
-		if 0 >= left_inputs:
-			left_inputs = 0
-			input_left.emit(false)
-	elif event.is_action_released(ACTION_NAME_DOWN):
-		down_inputs -= 1
-		if 0 >= down_inputs:
-			down_inputs = 0
-			input_down.emit(false)
-	elif event.is_action_released(ACTION_NAME_UP):
-		up_inputs -= 1
-		if 0 >= up_inputs:
-			up_inputs = 0
-			input_up.emit(false)
+	# keyboard
+	elif event.is_action(ACTION_NAME_RIGHT): input_right.emit(event.is_pressed())
+	elif event.is_action(ACTION_NAME_LEFT): input_left.emit(event.is_pressed())
+	elif event.is_action(ACTION_NAME_DOWN): input_down.emit(event.is_pressed())
+	elif event.is_action(ACTION_NAME_UP): input_up.emit(event.is_pressed())

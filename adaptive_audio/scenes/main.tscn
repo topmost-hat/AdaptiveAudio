@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://blipyu2sugqwl"]
 
 [ext_resource type="PackedScene" uid="uid://c03l4hccoskdn" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://0n2exrkr2ype" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bwcf7pkoexagd" path="res://scenes/enemy_spawner.tscn" id="2_0wfyh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0wfyh"]
 
 [node name="Main" type="Node" unique_id=1833017427]
+script = ExtResource("1_sugp2")
 
 [node name="World" type="Node2D" parent="." unique_id=542582846]
 

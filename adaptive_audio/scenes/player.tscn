@@ -13,6 +13,8 @@ radius = 40.0
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_3vyb7")
+reload_beat_mod = null
+reload_amount = null
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1583045295]
 scale = Vector2(0.75, 0.75)
@@ -31,18 +33,15 @@ ACTION_NAME_UP = "move_up"
 [node name="PlayerMovement" type="Node" parent="." unique_id=172446954]
 script = ExtResource("3_dqkch")
 TARGET_SPEED = 500.0
-MAX_SPEED = 500.0
 ACCELERATION = 100.0
 DECELERATION = 100.0
 TURNAROUND = 150.0
 
 [node name="PlayerShoot" type="Node" parent="." unique_id=1954966760]
 script = ExtResource("4_dqkch")
-default_max_ammo = 4
-max_max_ammo = 10
 
 [connection signal="input_down" from="PlayerInput" to="PlayerMovement" method="on_input_down"]
 [connection signal="input_left" from="PlayerInput" to="PlayerMovement" method="on_input_left"]
-[connection signal="input_mouse" from="PlayerInput" to="." method="_on_mouse_click"]
+[connection signal="input_lmb" from="PlayerInput" to="." method="_on_mouse_click"]
 [connection signal="input_right" from="PlayerInput" to="PlayerMovement" method="on_input_right"]
 [connection signal="input_up" from="PlayerInput" to="PlayerMovement" method="on_input_up"]

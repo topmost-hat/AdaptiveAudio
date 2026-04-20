@@ -2,7 +2,7 @@ extends Node
 
 #region Variables
 @export var _player: Player
-@export var _player_safe_radius: float = 150.0
+@export var _player_safe_radius: float = 400.0
 @export var _edge_safe_radius: float = 50.0
 @export var _difficulty_info: Array[DifficultyInfo]
 
@@ -12,6 +12,7 @@ var _charger = preload("res://scenes/entity/enemy/charger.tscn")
 
 var _difficulty: int = 0
 var _difficulty_beats: int
+
 var _wave_beats: int
 var _spawn_beats: int
 var _spawns_left: int
@@ -27,7 +28,7 @@ func _ready() -> void:
 	AudioManager.music_beat.connect(_on_music_beat)
 	
 	for d_info in _difficulty_info: d_info.count_enemies()
-	_spawns_left = _difficulty_info[_difficulty].enemies_per_wave
+	_difficulty_beats = _difficulty_info[_difficulty].beats_to_next_difficulty
 
 func _exit_tree() -> void:
 	AudioManager.music_beat.disconnect(_on_music_beat)
@@ -40,6 +41,10 @@ func _on_music_beat(_beat: int):
 	if 0 >= _difficulty_beats:
 		_difficulty = clampi(_difficulty + 1, 0, _difficulty_info.size() - 1)
 		_difficulty_beats = _difficulty_info[_difficulty].beats_to_next_difficulty
+		_wave_beats = 1
+		_spawn_beats = 0
+		_spawns_left = _difficulty_info[_difficulty].spawns_per_wave
+		_spawn_queue_index = 0
 	
 	# enemy spawning
 	_wave_beats -= 1
@@ -95,20 +100,23 @@ func _spawn_approacher(position: Vector2):
 	instance.position = position
 	instance.target = _player
 	add_child(instance)
+	AudioManager.play_sfx("BellSynthHigh")
 
 func _spawn_shooter(position: Vector2):
 	var instance: Shooter = _shooter.instantiate() as Shooter
 	instance.position = position
 	instance.target = _player
 	add_child(instance)
+	AudioManager.play_sfx("BellSynthMid")
 
 func _spawn_charger(position: Vector2):
 	var instance: Charger = _charger.instantiate() as Charger
 	instance.position = position
 	instance.target = _player
 	add_child(instance)
+	AudioManager.play_sfx("BellSynthLow")
 
-func _select_spawn_pos() -> Vector2:	
+func _select_spawn_pos() -> Vector2:
 	var rand_x: float = randf_range(_edge_safe_radius, 1920.0 - _edge_safe_radius)
 	var rand_y: float = randf_range(_edge_safe_radius, 1080.0 - _edge_safe_radius)
 	var position: Vector2 = Vector2(rand_x, rand_y)

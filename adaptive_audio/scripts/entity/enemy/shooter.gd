@@ -8,6 +8,10 @@ extends Enemy
 @export var beats_between_bullets: int = 0
 @export var bullets_per_burst: int = 3
 
+# dumb fix for player not colliding with this properly
+@export var acceleration: float = 100000.0
+@export var max_speed: float = 0.1
+
 var burst_beats: int
 var bullet_beats: int
 var bullets_left: int
@@ -26,6 +30,9 @@ func _exit_tree() -> void:
 	AudioManager.music_beat.disconnect(_on_music_beat)
 	WorldState.add_fact("NumShooters", -1)
 	#WorldState.add_fact("NumShootersKilled", 1)
+
+func _physics_process(delta: float) -> void:
+	_chase_target(delta)
 #endregion
 
 #region Override functions
@@ -64,4 +71,9 @@ func _shoot():
 	new_bullet.position = position
 	new_bullet.direction = target.position - position
 	get_tree().root.add_child(new_bullet)
+
+func _chase_target(delta: float):
+	if null == target: return
+	apply_force((target.position - position).normalized() * acceleration * delta)
+	linear_velocity = linear_velocity.limit_length(max_speed)
 #endregion

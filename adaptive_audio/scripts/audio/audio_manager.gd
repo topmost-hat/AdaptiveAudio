@@ -10,18 +10,20 @@ signal music_beat(beat: int)
 @export var lstn_num_chargers: Array[MusicLayerEvaluator]
 # TODO: more listener arrays for more WorldState changes
 
-var sfx_dict: Dictionary[String, AudioStreamPlayer]
+var _sfx_dict: Dictionary[String, AudioStreamPlayer]
+var _evaluators: Array[MusicLayerEvaluator]
 
-@onready var synced_music_player: SyncedMusicPlayer = $SyncedMusicPlayer
-@onready var music_layer_evaluators: Node = $MusicLayerEvaluators
-@onready var sfx_players: Node = $SFXPlayers
+@onready var _synced_music_player: SyncedMusicPlayer = $SyncedMusicPlayer
+@onready var _music_layer_evaluators: Node = $MusicLayerEvaluators
+@onready var _sfx_players: Node = $SFXPlayers
 #endregion
 
 #region Godot functions
 func _ready() -> void:
-	for player in sfx_players.get_children():
+	for player in _sfx_players.get_children():
 		if player is AudioStreamPlayer:
-			sfx_dict[player.name] = player as AudioStreamPlayer
+			_sfx_dict[player.name] = player as AudioStreamPlayer
+	_evaluators.assign(_music_layer_evaluators.find_children("*", "MusicLayerEvaluator", false))
 	
 	WorldState.connect_to_fact("PlayerHealth", _on_player_health_changed)
 	WorldState.connect_to_fact("NumApproachers", _on_num_approachers_changed)
@@ -43,25 +45,19 @@ func _run_evaluators(evaluators: Array[MusicLayerEvaluator]):
 	for evaluator: MusicLayerEvaluator in evaluators:
 		var index: int = evaluator.sync_stream_index
 		match evaluator.evaluate():
-			BT_Node.Status.FAILURE: synced_music_player.set_stream_volume(0.0, index)
-			BT_Node.Status.SUCCESS: synced_music_player.set_stream_volume(1.0, index)
+			BT_Node.Status.FAILURE: _synced_music_player.set_stream_volume(0.0, index)
+			BT_Node.Status.SUCCESS: _synced_music_player.set_stream_volume(1.0, index)
 			_: pass
 
+func start_music():
+	_synced_music_player.set_music_playing(true)
+	_run_evaluators(_evaluators)
+
+func stop_music(): _synced_music_player.set_music_playing(false)
+
 func play_sfx(sfx_name: String):
-	var sfx: AudioStreamPlayer = sfx_dict[sfx_name]
+	var sfx: AudioStreamPlayer = _sfx_dict[sfx_name]
 	if null == sfx: return
 	
 	if not sfx.playing: sfx.play()
 #endregion
-
-# TEMP
-var timer = 1.0
-func _process(delta: float) -> void:
-	timer -= delta
-	if timer <= 0:
-		timer = 1000000000.0
-		synced_music_player.set_music_playing(true)
-		
-		var evaluators: Array[MusicLayerEvaluator]
-		evaluators.assign(music_layer_evaluators.find_children("*", "MusicLayerEvaluator", false))
-		_run_evaluators(evaluators)

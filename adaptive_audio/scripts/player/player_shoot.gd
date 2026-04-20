@@ -3,15 +3,14 @@ extends Node
 
 signal player_shot
 
-@export var default_max_ammo: int
-@export var max_max_ammo: int
+@export var max_ammo: int = 8
+@export var reload_amount: int = 6
 
 var bullet = preload("res://scenes/entity/bullet/player_bullet.tscn")
 var ammo: int
-var max_ammo: int
 
 func _ready() -> void:
-	reset()
+	ammo = max_ammo
 
 func shoot(origin: Vector2, target: Vector2):
 	if 0 >= ammo: return
@@ -24,12 +23,5 @@ func shoot(origin: Vector2, target: Vector2):
 	
 	player_shot.emit()
 
-func reload(amount: int):
-	ammo = clampi(ammo + amount, 0, max_ammo)
-
-func set_max_ammo(amount: int):
-	max_ammo = clampi(max_ammo + amount, 1, max_max_ammo)
-
-func reset():
-	max_ammo = default_max_ammo
-	ammo = default_max_ammo
+func reload():
+	ammo = clampi(ammo + reload_amount, 0, max_ammo)

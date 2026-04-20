@@ -16,7 +16,6 @@ contact_monitor = true
 max_contacts_reported = 6
 linear_damp = 2.0
 script = ExtResource("1_3jn8x")
-health = 2
 metadata/_custom_type_script = "uid://b8cciqnx4bekc"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=362972724]
