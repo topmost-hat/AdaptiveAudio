@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var player_input: PlayerInput = $PlayerInput
 @onready var player_movement: PlayerMovement = $PlayerMovement
 @onready var player_shoot: PlayerShoot = $PlayerShoot
+@onready var player_health: PlayerHealth = $PlayerHealth
 
 func _ready() -> void:
 	AudioManager.music_beat.connect(_on_music_beat)
@@ -22,5 +23,9 @@ func _physics_process(_delta: float):
 func _on_mouse_click(pressed: bool):
 	if pressed: player_shoot.shoot(position, get_viewport().get_mouse_position())
 
-func _on_music_beat(_beat: int):
-	if (_beat - 1) % reload_beat_mod == 0: player_shoot.reload()
+func _on_die():
+	AudioManager.stop_music()
+	get_parent().queue_free()
+
+func _on_music_beat(beat: int):
+	if (beat - 1) % reload_beat_mod == 0: player_shoot.reload()

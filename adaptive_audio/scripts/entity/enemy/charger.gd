@@ -28,8 +28,8 @@ func _entity_collision(other: Entity):
 	if other is PlayerBullet:
 		add_health(-1)
 
-func _player_collision(_player: Player):
-	WorldState.add_fact("PlayerHealth", -1)
+func _player_collision(player: Player):
+	player.player_health.add_health(-1)
 	add_health(-1)
 
 func _other_collision(_body: Node): pass

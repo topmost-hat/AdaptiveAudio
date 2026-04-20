@@ -8,7 +8,6 @@ script = ExtResource("1_ac8ds")
 
 [node name="PlayerHealth" type="Node" parent="." unique_id=1863829848]
 script = ExtResource("2_4kd35")
-default = 3
 metadata/_custom_type_script = "uid://dtjt4t16hoeyy"
 
 [node name="NumApproachers" type="Node" parent="." unique_id=555545956]

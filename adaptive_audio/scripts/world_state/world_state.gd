@@ -12,14 +12,8 @@ func _ready() -> void:
 #endregion
 
 #region WorldFact functions
-func validate_fact(fact_name: String) -> bool:
-	if fact_dict.has(fact_name): return true
-	
-	push_warning("Could not find fact \"" + fact_name + "\"!")
-	return false
-
 func connect_to_fact(fact_name: String, callable: Callable, disconnecting: bool = false):
-	if not validate_fact(fact_name): return
+	if not _validate_fact(fact_name): return
 	
 	var sig: Signal = fact_dict[fact_name].changed
 	if sig.is_connected(callable): return
@@ -28,24 +22,30 @@ func connect_to_fact(fact_name: String, callable: Callable, disconnecting: bool 
 	else: sig.disconnect(callable)
 
 func get_fact(fact_name: String) -> Variant:
-	if not validate_fact(fact_name): return
+	if not _validate_fact(fact_name): return null
 	
 	return fact_dict[fact_name].fact
 
 func set_fact(fact_name: String, new_fact):
-	if not validate_fact(fact_name): return
+	if not _validate_fact(fact_name): return
 	
 	fact_dict[fact_name].fact = new_fact
 
 func add_fact(fact_name: String, to_add):
-	if not validate_fact(fact_name): return
+	if not _validate_fact(fact_name): return
 	
 	fact_dict[fact_name].fact += to_add
 
 func reset_fact(fact_name: String):
-	if not validate_fact(fact_name): return
+	if not _validate_fact(fact_name): return
 	
 	fact_dict[fact_name].reset()
+
+func _validate_fact(fact_name: String) -> bool:
+	if fact_dict.has(fact_name): return true
+	
+	push_warning("Could not find fact \"" + fact_name + "\"!")
+	return false
 #endregion
 
 #region Other functions

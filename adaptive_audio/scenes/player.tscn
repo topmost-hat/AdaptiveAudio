@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://q3vytcotwfe" path="res://sprites/sprite_player.png" id="2_qlg0r"]
 [ext_resource type="Script" uid="uid://d3g0l1v8we3ro" path="res://scripts/player/player_movement.gd" id="3_dqkch"]
 [ext_resource type="Script" uid="uid://nwlpoo1cy1yn" path="res://scripts/player/player_shoot.gd" id="4_dqkch"]
+[ext_resource type="Script" uid="uid://drfrp3p6efl76" path="res://scripts/player/player_health.gd" id="6_tuyoq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u8vuu"]
 radius = 40.0
@@ -13,8 +14,6 @@ radius = 40.0
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_3vyb7")
-reload_beat_mod = null
-reload_amount = null
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1583045295]
 scale = Vector2(0.75, 0.75)
@@ -23,25 +22,33 @@ texture = ExtResource("2_qlg0r")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1453008450]
 shape = SubResource("CircleShape2D_u8vuu")
 
-[node name="PlayerInput" type="Node" parent="." unique_id=1911740706]
+[node name="PlayerInput" type="Node" parent="." unique_id=840703210]
 script = ExtResource("2_qhqgy")
 ACTION_NAME_RIGHT = "move_right"
 ACTION_NAME_LEFT = "move_left"
 ACTION_NAME_DOWN = "move_down"
 ACTION_NAME_UP = "move_up"
+metadata/_custom_type_script = "uid://b16s1xfi6l0fv"
 
-[node name="PlayerMovement" type="Node" parent="." unique_id=172446954]
+[node name="PlayerMovement" type="Node" parent="." unique_id=1000838197]
 script = ExtResource("3_dqkch")
 TARGET_SPEED = 500.0
 ACCELERATION = 100.0
 DECELERATION = 100.0
 TURNAROUND = 150.0
+metadata/_custom_type_script = "uid://d3g0l1v8we3ro"
 
-[node name="PlayerShoot" type="Node" parent="." unique_id=1954966760]
+[node name="PlayerShoot" type="Node" parent="." unique_id=225752164]
 script = ExtResource("4_dqkch")
+metadata/_custom_type_script = "uid://nwlpoo1cy1yn"
+
+[node name="PlayerHealth" type="Node" parent="." unique_id=1377560407]
+script = ExtResource("6_tuyoq")
+metadata/_custom_type_script = "uid://drfrp3p6efl76"
 
 [connection signal="input_down" from="PlayerInput" to="PlayerMovement" method="on_input_down"]
 [connection signal="input_left" from="PlayerInput" to="PlayerMovement" method="on_input_left"]
 [connection signal="input_lmb" from="PlayerInput" to="." method="_on_mouse_click"]
 [connection signal="input_right" from="PlayerInput" to="PlayerMovement" method="on_input_right"]
 [connection signal="input_up" from="PlayerInput" to="PlayerMovement" method="on_input_up"]
+[connection signal="died" from="PlayerHealth" to="." method="_on_die"]
