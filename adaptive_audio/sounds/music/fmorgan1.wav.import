@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://bd66jeau86h3n"
-path="res://.godot/imported/timpani.wav-e3b21ff1bf0ef74e391b92718bf1ac25.sample"
+uid="uid://dwkm62xtje6wq"
+path="res://.godot/imported/fmorgan1.wav-e0aaa0f101311c045f15e1d130c7daf5.sample"
 
 [deps]
 
-source_file="res://sounds/music/timpani.wav"
-dest_files=["res://.godot/imported/timpani.wav-e3b21ff1bf0ef74e391b92718bf1ac25.sample"]
+source_file="res://sounds/music/fmorgan1.wav"
+dest_files=["res://.godot/imported/fmorgan1.wav-e0aaa0f101311c045f15e1d130c7daf5.sample"]
 
 [params]
 

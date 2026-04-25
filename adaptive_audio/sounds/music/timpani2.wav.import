@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://ddqwkpwf4s5ya"
-path="res://.godot/imported/metalpipe.wav-d2e8237f4ed9d6a9043eda99a40f8d0d.sample"
+uid="uid://cw0qpk72xpech"
+path="res://.godot/imported/timpani2.wav-5dacd12eae0b847044e2e7f0f56f5941.sample"
 
 [deps]
 
-source_file="res://sounds/music/metalpipe.wav"
-dest_files=["res://.godot/imported/metalpipe.wav-d2e8237f4ed9d6a9043eda99a40f8d0d.sample"]
+source_file="res://sounds/music/timpani2.wav"
+dest_files=["res://.godot/imported/timpani2.wav-5dacd12eae0b847044e2e7f0f56f5941.sample"]
 
 [params]
 

@@ -39,7 +39,7 @@ func _other_collision(_body: Node): pass
 func _on_music_beat(_beat: int):
 	beat_timer -= 1
 	
-	if 1 == beat_timer: pass # TODO: play warning SFX
+	if 2 == beat_timer: AudioManager.play_calliope()
 	elif -1 >= beat_timer:
 		beat_timer = beats_between_charges
 		_charge()

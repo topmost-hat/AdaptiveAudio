@@ -58,6 +58,8 @@ func get_seconds_per_beat() -> float: return _seconds_per_beat
 func get_length() -> float: return _length
 func get_playback_time() -> float: return _playback_time
 func get_beat_count() -> int: return _beat_count
+func get_stream_volume(index: int) -> float:
+	return db_to_linear(_sync_stream.get_sync_stream_volume(index))
 #endregion
 
 #region Setters

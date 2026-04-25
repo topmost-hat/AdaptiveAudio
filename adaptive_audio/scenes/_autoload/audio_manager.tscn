@@ -1,35 +1,62 @@
 [gd_scene format=3 uid="uid://ci7yfaj5wg0hy"]
 
 [ext_resource type="Script" uid="uid://bvfx52j7s0r5" path="res://scripts/audio/audio_manager.gd" id="1_yk7rq"]
-[ext_resource type="AudioStream" uid="uid://cxfv7sltg8d85" path="res://sounds/music/electricgrand.wav" id="2_8sc3y"]
-[ext_resource type="AudioStream" uid="uid://dwkm62xtje6wq" path="res://sounds/music/fmorgan.wav" id="3_83d3x"]
-[ext_resource type="AudioStream" uid="uid://ddqwkpwf4s5ya" path="res://sounds/music/metalpipe.wav" id="4_3c14a"]
-[ext_resource type="AudioStream" uid="uid://bd66jeau86h3n" path="res://sounds/music/timpani.wav" id="5_y67sp"]
+[ext_resource type="AudioStream" uid="uid://det1b6ogwrngj" path="res://sounds/music/MetalPipe/metalpipe1.wav" id="2_3us56"]
+[ext_resource type="Script" uid="uid://dt4l6t5ms2hsd" path="res://scripts/audio/music_layer_evaluator.gd" id="3_jnulk"]
+[ext_resource type="AudioStream" uid="uid://bosje8it8r2hi" path="res://sounds/music/MetalPipe/metalpipe2.wav" id="3_ul35v"]
+[ext_resource type="AudioStream" uid="uid://cw0qpk72xpech" path="res://sounds/music/timpani2.wav" id="4_ns5r2"]
+[ext_resource type="AudioStream" uid="uid://gy5377203d4q" path="res://sounds/music/choirtenor1.wav" id="5_3fyhg"]
+[ext_resource type="AudioStream" uid="uid://b8w5nrsnsycn3" path="res://sounds/sfx/calliope_rising_echo.mp3" id="6_4xad4"]
 [ext_resource type="Script" uid="uid://lglsb6dlx1nx" path="res://scripts/audio/synced_music_player.gd" id="6_kte1m"]
-[ext_resource type="PackedScene" uid="uid://cup2cnnjd3ulo" path="res://scenes/music_layer_evaluators/electric_grand_evaluator.tscn" id="7_r5bs8"]
-[ext_resource type="PackedScene" uid="uid://cksxvnntr7c55" path="res://scenes/music_layer_evaluators/fm_organ_evaluator.tscn" id="8_3us56"]
-[ext_resource type="PackedScene" uid="uid://bhm07w3gywdsu" path="res://scenes/music_layer_evaluators/metal_pipe_evaluator.tscn" id="9_ul35v"]
-[ext_resource type="PackedScene" uid="uid://ddyiw3ksvj85d" path="res://scenes/music_layer_evaluators/timpani_evaluator.tscn" id="10_ns5r2"]
+[ext_resource type="AudioStream" uid="uid://bary8yau805ik" path="res://sounds/music/MetalPipe/metalpipe3.wav" id="6_xqhs4"]
+[ext_resource type="AudioStream" uid="uid://b0mn2v7mstcyg" path="res://sounds/music/MetalPipe/metalpipe4.wav" id="7_cxlw2"]
+[ext_resource type="Script" uid="uid://dp84vhbiqtjly" path="res://scripts/audio/beat_cycle_sfx_pool.gd" id="7_tyuwv"]
+[ext_resource type="AudioStream" uid="uid://bxffpx62xc6sj" path="res://sounds/music/MetalPipe/metalpipe5.wav" id="8_82yid"]
+[ext_resource type="AudioStream" uid="uid://cxfv7sltg8d85" path="res://sounds/music/electricgrand1.wav" id="9_cj7qh"]
+[ext_resource type="AudioStream" uid="uid://dmg5376cx6hq8" path="res://sounds/music/electricgrand2.wav" id="10_bckqu"]
 [ext_resource type="AudioStream" uid="uid://ysjlodx34unu" path="res://sounds/sfx/bellsynth_high.wav" id="11_3fyhg"]
+[ext_resource type="AudioStream" uid="uid://dwkm62xtje6wq" path="res://sounds/music/fmorgan1.wav" id="11_o3wb1"]
+[ext_resource type="AudioStream" uid="uid://dgjyntjgpu2be" path="res://sounds/music/fmorgan2.wav" id="12_2t8a6"]
 [ext_resource type="AudioStream" uid="uid://cmt64rjyrfqxl" path="res://sounds/sfx/bellsynth_mid.wav" id="12_xqhs4"]
 [ext_resource type="AudioStream" uid="uid://wfrwo78riw2k" path="res://sounds/sfx/bellsynth_low.wav" id="13_cxlw2"]
+[ext_resource type="AudioStream" uid="uid://bd66jeau86h3n" path="res://sounds/music/timpani1.wav" id="13_f5n0b"]
+[ext_resource type="Script" uid="uid://dv634egw6mjik" path="res://scripts/behavior_tree/world_state_nodes/bt_within_range_int.gd" id="16_ul35v"]
+[ext_resource type="Script" uid="uid://d4ao4shdv4dbh" path="res://scripts/behavior_tree/bt_beat_within_range.gd" id="22_ns5r2"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_snwlw"]
-stream_count = 4
-stream_0/stream = ExtResource("2_8sc3y")
+stream_count = 12
+stream_0/stream = ExtResource("2_3us56")
 stream_0/volume = 0.0
-stream_1/stream = ExtResource("3_83d3x")
+stream_1/stream = ExtResource("3_ul35v")
 stream_1/volume = 0.0
-stream_2/stream = ExtResource("4_3c14a")
+stream_2/stream = ExtResource("6_xqhs4")
 stream_2/volume = 0.0
-stream_3/stream = ExtResource("5_y67sp")
+stream_3/stream = ExtResource("7_cxlw2")
 stream_3/volume = 0.0
+stream_4/stream = ExtResource("8_82yid")
+stream_4/volume = 0.0
+stream_5/stream = ExtResource("9_cj7qh")
+stream_5/volume = 0.0
+stream_6/stream = ExtResource("10_bckqu")
+stream_6/volume = 0.0
+stream_7/stream = ExtResource("11_o3wb1")
+stream_7/volume = 0.0
+stream_8/stream = ExtResource("12_2t8a6")
+stream_8/volume = 0.0
+stream_9/stream = ExtResource("13_f5n0b")
+stream_9/volume = 0.0
+stream_10/stream = ExtResource("4_ns5r2")
+stream_10/volume = 0.0
+stream_11/stream = ExtResource("5_3fyhg")
+stream_11/volume = 0.0
 
-[node name="AudioManager" type="Node" unique_id=1420765597 node_paths=PackedStringArray("lstn_num_approachers", "lstn_num_shooters", "lstn_num_chargers")]
+[node name="AudioManager" type="Node" unique_id=1420765597 node_paths=PackedStringArray("lstn_beat_count", "lstn_difficulty", "lstn_num_approachers", "lstn_num_shooters", "lstn_num_chargers")]
 script = ExtResource("1_yk7rq")
-lstn_num_approachers = [NodePath("MusicLayerEvaluators/FMOrganEvaluator")]
-lstn_num_shooters = [NodePath("MusicLayerEvaluators/ElectricGrandEvaluator")]
-lstn_num_chargers = [NodePath("MusicLayerEvaluators/TimpaniEvaluator")]
+lstn_beat_count = [NodePath("MusicLayerEvaluators/BeatCountEvaluator1")]
+lstn_difficulty = [NodePath("MusicLayerEvaluators/DifficultyEvaluator1"), NodePath("MusicLayerEvaluators/DifficultyEvaluator2"), NodePath("MusicLayerEvaluators/DifficultyEvaluator3"), NodePath("MusicLayerEvaluators/DifficultyEvaluator4"), NodePath("MusicLayerEvaluators/DifficultyEvaluator5")]
+lstn_num_approachers = [NodePath("MusicLayerEvaluators/ApproacherEvaluator1"), NodePath("MusicLayerEvaluators/ApproacherEvaluator2")]
+lstn_num_shooters = [NodePath("MusicLayerEvaluators/ShooterEvaluator1"), NodePath("MusicLayerEvaluators/ShooterEvaluator2")]
+lstn_num_chargers = [NodePath("MusicLayerEvaluators/ChargerEvaluator1"), NodePath("MusicLayerEvaluators/ChargerEvaluator2")]
 
 [node name="SyncedMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1818235961]
 stream = SubResource("AudioStreamSynchronized_snwlw")
@@ -39,16 +66,148 @@ metadata/_custom_type_script = "uid://lglsb6dlx1nx"
 
 [node name="MusicLayerEvaluators" type="Node" parent="." unique_id=1745254398]
 
-[node name="ElectricGrandEvaluator" parent="MusicLayerEvaluators" unique_id=824440302 instance=ExtResource("7_r5bs8")]
+[node name="BeatCountEvaluator1" type="Node" parent="MusicLayerEvaluators" unique_id=621026]
+script = ExtResource("3_jnulk")
+sync_stream_index = 11
+metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
 
-[node name="FMOrganEvaluator" parent="MusicLayerEvaluators" unique_id=1515273296 instance=ExtResource("8_3us56")]
+[node name="BT_BeatWithinRange" type="Node" parent="MusicLayerEvaluators/BeatCountEvaluator1" unique_id=365765132]
+script = ExtResource("22_ns5r2")
+cycle = 64
+min_value = 49
+max_value = 64
+metadata/_custom_type_script = "uid://d4ao4shdv4dbh"
+
+[node name="DifficultyEvaluator1" type="Node" parent="MusicLayerEvaluators" unique_id=1088904448]
+script = ExtResource("3_jnulk")
+sync_stream_index = 0
+metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
+
+[node name="BT_WithinRangeInt" type="Node" parent="MusicLayerEvaluators/DifficultyEvaluator1" unique_id=1626624579]
+script = ExtResource("16_ul35v")
+fact_name = "Difficulty"
+max_value = 1
+metadata/_custom_type_script = "uid://dv634egw6mjik"
+
+[node name="DifficultyEvaluator2" type="Node" parent="MusicLayerEvaluators" unique_id=1844428049]
+script = ExtResource("3_jnulk")
 sync_stream_index = 1
+metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
 
-[node name="MetalPipeEvaluator" parent="MusicLayerEvaluators" unique_id=253386477 instance=ExtResource("9_ul35v")]
+[node name="BT_WithinRangeInt" type="Node" parent="MusicLayerEvaluators/DifficultyEvaluator2" unique_id=479587990]
+script = ExtResource("16_ul35v")
+fact_name = "Difficulty"
+min_value = 2
+max_value = 3
+metadata/_custom_type_script = "uid://dv634egw6mjik"
+
+[node name="DifficultyEvaluator3" type="Node" parent="MusicLayerEvaluators" unique_id=296567735]
+script = ExtResource("3_jnulk")
 sync_stream_index = 2
+metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
 
-[node name="TimpaniEvaluator" parent="MusicLayerEvaluators" unique_id=1199353098 instance=ExtResource("10_ns5r2")]
+[node name="BT_WithinRangeInt" type="Node" parent="MusicLayerEvaluators/DifficultyEvaluator3" unique_id=1227760864]
+script = ExtResource("16_ul35v")
+fact_name = "Difficulty"
+min_value = 4
+max_value = 5
+metadata/_custom_type_script = "uid://dv634egw6mjik"
+
+[node name="DifficultyEvaluator4" type="Node" parent="MusicLayerEvaluators" unique_id=674242151]
+script = ExtResource("3_jnulk")
 sync_stream_index = 3
+metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
+
+[node name="BT_WithinRangeInt" type="Node" parent="MusicLayerEvaluators/DifficultyEvaluator4" unique_id=15306210]
+script = ExtResource("16_ul35v")
+fact_name = "Difficulty"
+min_value = 6
+max_value = 7
+metadata/_custom_type_script = "uid://dv634egw6mjik"
+
+[node name="DifficultyEvaluator5" type="Node" parent="MusicLayerEvaluators" unique_id=367679570]
+script = ExtResource("3_jnulk")
+sync_stream_index = 4
+metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
+
+[node name="BT_WithinRangeInt" type="Node" parent="MusicLayerEvaluators/DifficultyEvaluator5" unique_id=545012417]
+script = ExtResource("16_ul35v")
+fact_name = "Difficulty"
+min_value = 8
+max_value = 9
+metadata/_custom_type_script = "uid://dv634egw6mjik"
+
+[node name="ApproacherEvaluator1" type="Node" parent="MusicLayerEvaluators" unique_id=1889747730]
+script = ExtResource("3_jnulk")
+sync_stream_index = 7
+metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
+
+[node name="BT_WithinRangeInt" type="Node" parent="MusicLayerEvaluators/ApproacherEvaluator1" unique_id=1314974614]
+script = ExtResource("16_ul35v")
+fact_name = "NumApproachers"
+min_value = 1
+max_value = 4
+metadata/_custom_type_script = "uid://dv634egw6mjik"
+
+[node name="ApproacherEvaluator2" type="Node" parent="MusicLayerEvaluators" unique_id=608431832]
+script = ExtResource("3_jnulk")
+sync_stream_index = 8
+metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
+
+[node name="BT_WithinRangeInt" type="Node" parent="MusicLayerEvaluators/ApproacherEvaluator2" unique_id=158533782]
+script = ExtResource("16_ul35v")
+fact_name = "NumApproachers"
+min_value = 5
+max_value = 1000000000
+metadata/_custom_type_script = "uid://dv634egw6mjik"
+
+[node name="ShooterEvaluator1" type="Node" parent="MusicLayerEvaluators" unique_id=813866604]
+script = ExtResource("3_jnulk")
+sync_stream_index = 5
+metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
+
+[node name="BT_WithinRangeInt" type="Node" parent="MusicLayerEvaluators/ShooterEvaluator1" unique_id=1132109022]
+script = ExtResource("16_ul35v")
+fact_name = "NumShooters"
+min_value = 1
+max_value = 4
+metadata/_custom_type_script = "uid://dv634egw6mjik"
+
+[node name="ShooterEvaluator2" type="Node" parent="MusicLayerEvaluators" unique_id=1184910425]
+script = ExtResource("3_jnulk")
+sync_stream_index = 6
+metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
+
+[node name="BT_WithinRangeInt" type="Node" parent="MusicLayerEvaluators/ShooterEvaluator2" unique_id=301059727]
+script = ExtResource("16_ul35v")
+fact_name = "NumShooters"
+min_value = 5
+max_value = 1000000000
+metadata/_custom_type_script = "uid://dv634egw6mjik"
+
+[node name="ChargerEvaluator1" type="Node" parent="MusicLayerEvaluators" unique_id=1273211991]
+script = ExtResource("3_jnulk")
+sync_stream_index = 9
+metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
+
+[node name="BT_WithinRangeInt" type="Node" parent="MusicLayerEvaluators/ChargerEvaluator1" unique_id=1294968792]
+script = ExtResource("16_ul35v")
+fact_name = "NumChargers"
+min_value = 1
+max_value = 2
+metadata/_custom_type_script = "uid://dv634egw6mjik"
+
+[node name="ChargerEvaluator2" type="Node" parent="MusicLayerEvaluators" unique_id=857931904]
+script = ExtResource("3_jnulk")
+sync_stream_index = 10
+metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
+
+[node name="BT_WithinRangeInt" type="Node" parent="MusicLayerEvaluators/ChargerEvaluator2" unique_id=1554477840]
+script = ExtResource("16_ul35v")
+fact_name = "NumChargers"
+min_value = 3
+max_value = 1000000000
+metadata/_custom_type_script = "uid://dv634egw6mjik"
 
 [node name="SFXPlayers" type="Node" parent="." unique_id=142333226]
 
@@ -60,5 +219,23 @@ stream = ExtResource("12_xqhs4")
 
 [node name="BellSynthLow" type="AudioStreamPlayer" parent="SFXPlayers" unique_id=1195835184]
 stream = ExtResource("13_cxlw2")
+
+[node name="CalliopePlayer" type="AudioStreamPlayer" parent="." unique_id=1826052002]
+stream = ExtResource("6_4xad4")
+script = ExtResource("7_tyuwv")
+_num_in_pool = 8
+metadata/_custom_type_script = "uid://dp84vhbiqtjly"
+
+[node name="PlayerHealthEvaluator1" type="Node" parent="." unique_id=1464987158]
+script = ExtResource("3_jnulk")
+metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
+
+[node name="PlayerHealthEvaluator2" type="Node" parent="." unique_id=975527485]
+script = ExtResource("3_jnulk")
+metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
+
+[node name="PlayerHealthEvaluator3" type="Node" parent="." unique_id=2119602057]
+script = ExtResource("3_jnulk")
+metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
 
 [connection signal="music_beat" from="SyncedMusicPlayer" to="." method="_on_music_beat"]

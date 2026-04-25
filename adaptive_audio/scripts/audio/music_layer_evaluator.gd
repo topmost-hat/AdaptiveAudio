@@ -1,14 +1,14 @@
 class_name MusicLayerEvaluator
 extends Node
 
-@export var sync_stream_index: int
+@export var sync_stream_index: int = -1
 
 var bt_root: BT_Node
 
 func _ready() -> void:
-	bt_root = get_child(0)
-	if null == bt_root:
+	if 0 >= get_child_count():
 		queue_free()
 		return
+	bt_root = get_child(0)
 
 func evaluate() -> BT_Node.Status: return bt_root.evaluate()

@@ -6,8 +6,13 @@
 [node name="WorldState" type="Node" unique_id=1332216156]
 script = ExtResource("1_ac8ds")
 
+[node name="Difficulty" type="Node" parent="." unique_id=239837865]
+script = ExtResource("2_4kd35")
+metadata/_custom_type_script = "uid://dtjt4t16hoeyy"
+
 [node name="PlayerHealth" type="Node" parent="." unique_id=1863829848]
 script = ExtResource("2_4kd35")
+default = 3
 metadata/_custom_type_script = "uid://dtjt4t16hoeyy"
 
 [node name="NumApproachers" type="Node" parent="." unique_id=555545956]

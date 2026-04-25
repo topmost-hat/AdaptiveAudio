@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://dwkm62xtje6wq"
-path="res://.godot/imported/fmorgan.wav-c3e0005281c70f94fbf4d824a73afc16.sample"
+uid="uid://dgjyntjgpu2be"
+path="res://.godot/imported/fmorgan2.wav-a1ab575ffac6c20e54f51d3bdc104a79.sample"
 
 [deps]
 
-source_file="res://sounds/music/fmorgan.wav"
-dest_files=["res://.godot/imported/fmorgan.wav-c3e0005281c70f94fbf4d824a73afc16.sample"]
+source_file="res://sounds/music/fmorgan2.wav"
+dest_files=["res://.godot/imported/fmorgan2.wav-a1ab575ffac6c20e54f51d3bdc104a79.sample"]
 
 [params]
 

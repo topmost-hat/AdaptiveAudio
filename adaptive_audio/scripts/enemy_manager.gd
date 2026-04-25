@@ -44,8 +44,9 @@ func _on_music_beat(_beat: int):
 		_difficulty_beats = _difficulty_info[_difficulty].beats_to_next_difficulty
 		_wave_beats = 1
 		_spawn_beats = 0
-		_spawns_left = _difficulty_info[_difficulty].spawns_per_wave
+		_spawns_left = _difficulty_info[_difficulty].enemies_per_wave
 		_spawn_queue_index = 0
+		WorldState.set_fact("Difficulty", _difficulty)
 	
 	# enemy spawning
 	_wave_beats -= 1

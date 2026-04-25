@@ -1,7 +1,7 @@
 class_name DifficultyInfo
 extends Resource
 
-@export var beats_to_next_difficulty: int
+@export var beats_to_next_difficulty: int = 16
 @export var beats_between_waves: int
 @export var beats_between_spawns: int
 @export var enemies_per_wave: int

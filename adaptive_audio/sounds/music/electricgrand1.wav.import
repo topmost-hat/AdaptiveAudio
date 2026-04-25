@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cxfv7sltg8d85"
-path="res://.godot/imported/electricgrand.wav-435d676a1428938ccff532c6ebfe1ee3.sample"
+path="res://.godot/imported/electricgrand1.wav-b19392374c99640191b96ce5a854abaa.sample"
 
 [deps]
 
-source_file="res://sounds/music/electricgrand.wav"
-dest_files=["res://.godot/imported/electricgrand.wav-435d676a1428938ccff532c6ebfe1ee3.sample"]
+source_file="res://sounds/music/electricgrand1.wav"
+dest_files=["res://.godot/imported/electricgrand1.wav-b19392374c99640191b96ce5a854abaa.sample"]
 
 [params]
 
