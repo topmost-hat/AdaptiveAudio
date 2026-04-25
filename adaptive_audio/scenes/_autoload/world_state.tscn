@@ -15,6 +15,15 @@ script = ExtResource("2_4kd35")
 default = 3
 metadata/_custom_type_script = "uid://dtjt4t16hoeyy"
 
+[node name="PlayerAmmo" type="Node" parent="." unique_id=1808355884]
+script = ExtResource("2_4kd35")
+default = 8
+metadata/_custom_type_script = "uid://dtjt4t16hoeyy"
+
+[node name="PlayerShotsFired" type="Node" parent="." unique_id=1200397713]
+script = ExtResource("2_4kd35")
+metadata/_custom_type_script = "uid://dtjt4t16hoeyy"
+
 [node name="NumApproachers" type="Node" parent="." unique_id=555545956]
 script = ExtResource("2_4kd35")
 metadata/_custom_type_script = "uid://dtjt4t16hoeyy"
@@ -24,5 +33,17 @@ script = ExtResource("2_4kd35")
 metadata/_custom_type_script = "uid://dtjt4t16hoeyy"
 
 [node name="NumChargers" type="Node" parent="." unique_id=1993825022]
+script = ExtResource("2_4kd35")
+metadata/_custom_type_script = "uid://dtjt4t16hoeyy"
+
+[node name="NumApproachersDefeated" type="Node" parent="." unique_id=2091243556]
+script = ExtResource("2_4kd35")
+metadata/_custom_type_script = "uid://dtjt4t16hoeyy"
+
+[node name="NumShootersDefeated" type="Node" parent="." unique_id=617390536]
+script = ExtResource("2_4kd35")
+metadata/_custom_type_script = "uid://dtjt4t16hoeyy"
+
+[node name="NumChargersDefeated" type="Node" parent="." unique_id=365249520]
 script = ExtResource("2_4kd35")
 metadata/_custom_type_script = "uid://dtjt4t16hoeyy"

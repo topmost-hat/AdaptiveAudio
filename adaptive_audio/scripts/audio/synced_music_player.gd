@@ -6,6 +6,7 @@ signal music_beat(beat: int)
 
 # gettable
 @export var _bpm: float
+@export var _fade_time: float = 0.45
 
 var _seconds_per_beat: float
 var _length: float
@@ -17,6 +18,7 @@ var _sync_stream: AudioStreamSynchronized
 var _output_latency: float
 var _prev_playback_time: float = 0.0
 var _beat_timer: float = 0.0
+var _fade_check: Array[bool]
 #endregion
 
 #region Godot functions
@@ -27,6 +29,9 @@ func _ready() -> void:
 	_seconds_per_beat = 60.0 / _bpm
 	for i: int in _sync_stream.stream_count:
 		_length = maxf(_length, _sync_stream.get_sync_stream(i).get_length())
+	
+	_fade_check.resize(_sync_stream.stream_count)
+	_fade_check.fill(false)
 
 func _process(_delta: float) -> void:
 	if not playing: return
@@ -71,6 +76,7 @@ func set_music_playing(play_music: bool):
 		music_beat.emit(_beat_count)
 	else:
 		stop()
+		reset()
 
 func set_music_paused(pause_music: bool):
 	stream_paused = pause_music
@@ -92,4 +98,25 @@ func reset():
 	_beat_timer = 0.0
 	
 	_output_latency = AudioServer.get_output_latency()
+
+func fade_out_stream(index: int):
+	var current_volume: float = db_to_linear(_sync_stream.get_sync_stream_volume(index))
+	while current_volume > 0.0:
+		if _fade_check[index]: return # fade in has priority
+		current_volume -= get_process_delta_time() / _fade_time
+		current_volume = clampf(current_volume, 0.0, 1.0)
+		_sync_stream.set_sync_stream_volume(index, linear_to_db(current_volume))
+		await get_tree().process_frame
+
+func fade_in_stream(index: int):
+	_fade_check[index] = true # fade in has priority
+	
+	var current_volume: float = db_to_linear(_sync_stream.get_sync_stream_volume(index))
+	while current_volume < 1.0:
+		current_volume += get_process_delta_time() / _fade_time
+		current_volume = clampf(current_volume, 0.0, 1.0)
+		_sync_stream.set_sync_stream_volume(index, linear_to_db(current_volume))
+		await get_tree().process_frame
+	
+	_fade_check[index] = false # release fade for fade outs
 #endregion

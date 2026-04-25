@@ -1,7 +1,8 @@
+class_name EnemyManager
 extends Node
 
 #region Variables
-@export var _player: Player
+@export var player: Player
 @export var _player_safe_radius: float = 400.0
 @export var _edge_safe_radius: float = 50.0
 @export var _difficulty_info: Array[DifficultyInfo]
@@ -21,10 +22,6 @@ var _spawn_queue_index: int
 
 #region Godot functions
 func _ready() -> void:
-	if null == _player:
-		push_error("Player not assigned in EnemyManager.")
-		queue_free()
-	
 	AudioManager.music_beat.connect(_on_music_beat)
 	WorldState.connect_to_fact("PlayerHealth", _on_player_health_changed)
 	
@@ -37,12 +34,16 @@ func _exit_tree() -> void:
 
 #region Signal receiver functions
 func _on_music_beat(_beat: int):
+	if null == player:
+		push_error("Player not assigned in EnemyManager.")
+		return
+	
 	# difficulty
 	_difficulty_beats -= 1
 	if 0 >= _difficulty_beats:
 		_difficulty = clampi(_difficulty + 1, 0, _difficulty_info.size() - 1)
 		_difficulty_beats = _difficulty_info[_difficulty].beats_to_next_difficulty
-		_wave_beats = 1
+		_wave_beats = 0
 		_spawn_beats = 0
 		_spawns_left = _difficulty_info[_difficulty].enemies_per_wave
 		_spawn_queue_index = 0
@@ -104,21 +105,21 @@ func _spawn_next_in_queue() -> bool:
 func _spawn_approacher(position: Vector2):
 	var instance: Approacher = _approacher.instantiate() as Approacher
 	instance.position = position
-	instance.target = _player
+	instance.target = player
 	add_child(instance)
 	AudioManager.play_sfx("BellSynthHigh")
 
 func _spawn_shooter(position: Vector2):
 	var instance: Shooter = _shooter.instantiate() as Shooter
 	instance.position = position
-	instance.target = _player
+	instance.target = player
 	add_child(instance)
 	AudioManager.play_sfx("BellSynthMid")
 
 func _spawn_charger(position: Vector2):
 	var instance: Charger = _charger.instantiate() as Charger
 	instance.position = position
-	instance.target = _player
+	instance.target = player
 	add_child(instance)
 	AudioManager.play_sfx("BellSynthLow")
 
@@ -126,11 +127,21 @@ func _select_spawn_pos() -> Vector2:
 	var rand_x: float = randf_range(_edge_safe_radius, 1920.0 - _edge_safe_radius)
 	var rand_y: float = randf_range(_edge_safe_radius, 1080.0 - _edge_safe_radius)
 	var position: Vector2 = Vector2(rand_x, rand_y)
-	if (position - _player.position).length() < _player_safe_radius:
+	if (position - player.position).length() < _player_safe_radius:
 		position = _select_spawn_pos() # statistically fine as long as safe radius isn't too huge
 	return position
 
 func despawn_all():
 	for child in get_children():
 		child.queue_free()
+#endregion
+
+#region Other functions
+func reset():
+	_difficulty = 0
+	_difficulty_beats = _difficulty_info[_difficulty].beats_to_next_difficulty
+	_wave_beats = 0
+	_spawn_beats = 0
+	_spawns_left = _difficulty_info[_difficulty].enemies_per_wave
+	_spawn_queue_index = 0
 #endregion

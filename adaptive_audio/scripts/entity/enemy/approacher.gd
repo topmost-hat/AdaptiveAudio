@@ -10,10 +10,6 @@ extends Enemy
 func _ready() -> void:
 	WorldState.add_fact("NumApproachers", 1)
 
-func _exit_tree() -> void:
-	WorldState.add_fact("NumApproachers", -1)
-	#WorldState.add_fact("NumApproachersKilled", 1)
-
 func _physics_process(delta: float) -> void:
 	_chase_target(delta)
 #endregion
@@ -22,12 +18,17 @@ func _physics_process(delta: float) -> void:
 func _entity_collision(other: Entity):
 	if other is PlayerBullet:
 		add_health(-1)
+		if 0 >= health: WorldState.add_fact("NumApproachersDefeated", 1)
 
 func _player_collision(player: Player):
-	player.player_health.add_health(-1)
 	die()
+	player.player_health.add_health(-1)
 
 func _other_collision(_body: Node): pass
+
+func die():
+	super()
+	WorldState.add_fact("NumApproachers", -1)
 #endregion
 
 #region Other functions

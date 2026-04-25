@@ -25,7 +25,7 @@ func _on_mouse_click(pressed: bool):
 
 func _on_die():
 	AudioManager.stop_music()
-	get_parent().queue_free()
+	queue_free()
 
 func _on_music_beat(beat: int):
 	if (beat - 1) % reload_beat_mod == 0: player_shoot.reload()

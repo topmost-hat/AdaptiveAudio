@@ -48,17 +48,23 @@ func _on_num_chargers_changed(): _run_evaluators(lstn_num_chargers)
 #endregion
 
 #region Other functions
-func _run_evaluators(evaluators: Array[MusicLayerEvaluator]):
+func _run_evaluators(evaluators: Array[MusicLayerEvaluator], instant: bool = false):
 	for evaluator: MusicLayerEvaluator in evaluators:
 		var index: int = evaluator.sync_stream_index
-		match evaluator.evaluate():
-			BT_Node.Status.FAILURE: _synced_music_player.set_stream_volume(0.0, index)
-			BT_Node.Status.SUCCESS: _synced_music_player.set_stream_volume(1.0, index)
-			_: pass
+		if instant:
+			match evaluator.evaluate():
+				BT_Node.Status.FAILURE: _synced_music_player.set_stream_volume(0.0, index)
+				BT_Node.Status.SUCCESS: _synced_music_player.set_stream_volume(1.0, index)
+				_: pass
+		else:
+			match evaluator.evaluate():
+				BT_Node.Status.FAILURE: _synced_music_player.fade_out_stream(index)
+				BT_Node.Status.SUCCESS: _synced_music_player.fade_in_stream(index)
+				_: pass
 
 func start_music():
+	_run_evaluators(_evaluators, true)
 	_synced_music_player.set_music_playing(true)
-	_run_evaluators(_evaluators)
 
 func stop_music(): _synced_music_player.set_music_playing(false)
 

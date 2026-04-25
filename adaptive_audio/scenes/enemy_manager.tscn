@@ -60,6 +60,7 @@ enemies_per_wave = 1
 spawn_queue = Array[int]([2, 2, 2, 2, 2])
 metadata/_custom_type_script = "uid://cwxj0lbhxlwmm"
 
-[node name="EnemyManager" type="Node" unique_id=1570079357]
+[node name="EnemyManager" type="Node" unique_id=1045681904]
 script = ExtResource("1_i6mmg")
 _difficulty_info = Array[ExtResource("2_m8so1")]([SubResource("Resource_i6mmg"), SubResource("Resource_m8so1"), SubResource("Resource_aojfi"), SubResource("Resource_a8nnw"), SubResource("Resource_cg41x"), SubResource("Resource_m36cc"), SubResource("Resource_jie4v"), SubResource("Resource_2a34h")])
+metadata/_custom_type_script = "uid://d25dulj2po8cr"

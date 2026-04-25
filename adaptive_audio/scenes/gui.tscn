@@ -1,0 +1,262 @@
+[gd_scene format=3 uid="uid://d0cse00naee53"]
+
+[ext_resource type="Script" uid="uid://bt5hmrvfc6y75" path="res://scripts/gui.gd" id="1_efmwq"]
+
+[node name="GUI" type="Control" unique_id=791987428]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_efmwq")
+metadata/_custom_type_script = "uid://bt5hmrvfc6y75"
+
+[node name="TitleScreen" type="Control" parent="." unique_id=528123063]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TitleText" type="Label" parent="TitleScreen" unique_id=1682110633]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -496.0
+offset_top = -190.0
+offset_right = 496.0
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Atticus's Adaptive Audio Activity"
+horizontal_alignment = 1
+
+[node name="InstructionsText" type="Label" parent="TitleScreen" unique_id=238973594]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.5
+offset_top = -70.5
+offset_right = 243.5
+offset_bottom = 70.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Move with WASD or Arrow Keys
+Shoot with Left Click
+Aim with the Mouse Cursor"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="TitleScreen" unique_id=402787147]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 110.0
+offset_right = 100.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Start"
+
+[node name="GameplayScreen" type="Control" parent="." unique_id=274463230]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HealthUI" type="Label" parent="GameplayScreen" unique_id=1192281296]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 286.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 64
+text = "Health: 3"
+
+[node name="AmmoUI" type="Label" parent="GameplayScreen" unique_id=1994199555]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 80.0
+offset_right = 284.0
+offset_bottom = 168.0
+theme_override_font_sizes/font_size = 64
+text = "Ammo: 8"
+
+[node name="GameOverScreen" type="Control" parent="." unique_id=696648605]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="GameOverText" type="Label" parent="GameOverScreen" unique_id=1604346565]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.0
+offset_top = -265.0
+offset_right = 174.0
+offset_bottom = -177.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="GameOverScreen" unique_id=28264358]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 210.0
+offset_right = 100.0
+offset_bottom = 310.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Play Again"
+
+[node name="Statistics" type="Control" parent="GameOverScreen" unique_id=1942302727]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="StatsText" type="Label" parent="GameOverScreen/Statistics" unique_id=1019590058]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.0
+offset_top = -150.0
+offset_right = 99.0
+offset_bottom = -95.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Your Stats"
+horizontal_alignment = 1
+
+[node name="SecondsSurvived" type="Label" parent="GameOverScreen/Statistics" unique_id=1582201813]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.0
+offset_top = -90.0
+offset_right = 158.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Seconds Survived: 999"
+horizontal_alignment = 1
+
+[node name="ShotsFired" type="Label" parent="GameOverScreen/Statistics" unique_id=1172348584]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -40.0
+offset_right = 104.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Shots Fired: 999"
+horizontal_alignment = 1
+
+[node name="ApproachersDefeated" type="Label" parent="GameOverScreen/Statistics" unique_id=1416680446]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -191.5
+offset_top = 10.0
+offset_right = 191.5
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Yellow Defeated: 999"
+horizontal_alignment = 1
+
+[node name="ShootersDefeated" type="Label" parent="GameOverScreen/Statistics" unique_id=1861891543]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.5
+offset_top = 60.0
+offset_right = 161.5
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Red Defeated: 999"
+horizontal_alignment = 1
+
+[node name="ChargersDefeated" type="Label" parent="GameOverScreen/Statistics" unique_id=139005445]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.5
+offset_top = 110.0
+offset_right = 162.5
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Purple Defeated: 999"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="TitleScreen/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="GameOverScreen/RestartButton" to="." method="_on_restart_button_pressed"]

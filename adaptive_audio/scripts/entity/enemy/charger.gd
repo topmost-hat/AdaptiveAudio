@@ -19,20 +19,23 @@ func _ready() -> void:
 
 func _exit_tree() -> void:
 	AudioManager.music_beat.disconnect(_on_music_beat)
-	WorldState.add_fact("NumChargers", -1)
-	#WorldState.add_fact("NumChargersKilled", 1)
 #endregion
 
 #region Override functions
 func _entity_collision(other: Entity):
 	if other is PlayerBullet:
 		add_health(-1)
+		if 0 >= health: WorldState.add_fact("NumChargersDefeated", 1)
 
 func _player_collision(player: Player):
-	player.player_health.add_health(-1)
 	add_health(-1)
+	player.player_health.add_health(-1)
 
 func _other_collision(_body: Node): pass
+
+func die():
+	super()
+	WorldState.add_fact("NumChargers", -1)
 #endregion
 
 #region Other functions
