@@ -1,4 +1,5 @@
-# AdaptiveAudio
+# Atticus's Adaptive Audio Activity (AAAA)
+Check it out on itch.io: https://tticus.itch.io/adaptive-audio-activity
 
 ## Credits
 Music created using BeepBox by John Nesky
@@ -6,6 +7,3 @@ Music created using BeepBox by John Nesky
 
 Behavior Tree nodes based on lecture notes by Alexandre Tolstenko
 * https://gameguild.gg/p/ai4games2/week-02
-
-Player movement scripts based on a personal project by Atticus Clark
-* link n/a
