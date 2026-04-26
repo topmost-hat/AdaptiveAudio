@@ -11,7 +11,7 @@ var _approacher = preload("res://scenes/entity/enemy/approacher.tscn")
 var _shooter = preload("res://scenes/entity/enemy/shooter.tscn")
 var _charger = preload("res://scenes/entity/enemy/charger.tscn")
 
-var _difficulty: int = 0
+var _difficulty: int
 var _difficulty_beats: int
 
 var _wave_beats: int
@@ -26,7 +26,7 @@ func _ready() -> void:
 	WorldState.connect_to_fact("PlayerHealth", _on_player_health_changed)
 	
 	for d_info in _difficulty_info: d_info.count_enemies()
-	_difficulty_beats = _difficulty_info[_difficulty].beats_to_next_difficulty
+	reset()
 
 func _exit_tree() -> void:
 	AudioManager.music_beat.disconnect(_on_music_beat)
@@ -60,7 +60,7 @@ func _on_music_beat(_beat: int):
 	_spawn_next_in_queue()
 	_spawn_beats = d_info.beats_between_spawns
 	_spawns_left -= 1
-	if 1 <= _spawns_left: return
+	if 0 < _spawns_left: return
 	
 	_wave_beats = d_info.beats_between_waves
 	_spawn_beats = 0
@@ -107,21 +107,21 @@ func _spawn_approacher(position: Vector2):
 	instance.position = position
 	instance.target = player
 	add_child(instance)
-	AudioManager.play_sfx("BellSynthHigh")
+	AudioManager.play_sfx("BellSynthHigh", true)
 
 func _spawn_shooter(position: Vector2):
 	var instance: Shooter = _shooter.instantiate() as Shooter
 	instance.position = position
 	instance.target = player
 	add_child(instance)
-	AudioManager.play_sfx("BellSynthMid")
+	AudioManager.play_sfx("BellSynthMid", true)
 
 func _spawn_charger(position: Vector2):
 	var instance: Charger = _charger.instantiate() as Charger
 	instance.position = position
 	instance.target = player
 	add_child(instance)
-	AudioManager.play_sfx("BellSynthLow")
+	AudioManager.play_sfx("BellSynthLow", true)
 
 func _select_spawn_pos() -> Vector2:
 	var rand_x: float = randf_range(_edge_safe_radius, 1920.0 - _edge_safe_radius)

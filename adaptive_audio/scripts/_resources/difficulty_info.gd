@@ -1,10 +1,10 @@
 class_name DifficultyInfo
 extends Resource
 
-@export var beats_to_next_difficulty: int = 16
+@export var beats_to_next_difficulty: int = 32
 @export var beats_between_waves: int
 @export var beats_between_spawns: int
-@export var enemies_per_wave: int
+@export var enemies_per_wave: int = 1
 @export var spawn_queue: Array[Enemy.Type]
 
 var _max_approachers: int = 0

@@ -86,7 +86,6 @@ metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
 [node name="BT_WithinRangeInt" type="Node" parent="MusicLayerEvaluators/DifficultyEvaluator1" unique_id=1626624579]
 script = ExtResource("16_ul35v")
 fact_name = "Difficulty"
-max_value = 1
 metadata/_custom_type_script = "uid://dv634egw6mjik"
 
 [node name="DifficultyEvaluator2" type="Node" parent="MusicLayerEvaluators" unique_id=1844428049]
@@ -97,8 +96,8 @@ metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
 [node name="BT_WithinRangeInt" type="Node" parent="MusicLayerEvaluators/DifficultyEvaluator2" unique_id=479587990]
 script = ExtResource("16_ul35v")
 fact_name = "Difficulty"
-min_value = 2
-max_value = 3
+min_value = 1
+max_value = 1
 metadata/_custom_type_script = "uid://dv634egw6mjik"
 
 [node name="DifficultyEvaluator3" type="Node" parent="MusicLayerEvaluators" unique_id=296567735]
@@ -109,8 +108,8 @@ metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
 [node name="BT_WithinRangeInt" type="Node" parent="MusicLayerEvaluators/DifficultyEvaluator3" unique_id=1227760864]
 script = ExtResource("16_ul35v")
 fact_name = "Difficulty"
-min_value = 4
-max_value = 5
+min_value = 2
+max_value = 2
 metadata/_custom_type_script = "uid://dv634egw6mjik"
 
 [node name="DifficultyEvaluator4" type="Node" parent="MusicLayerEvaluators" unique_id=674242151]
@@ -121,8 +120,8 @@ metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
 [node name="BT_WithinRangeInt" type="Node" parent="MusicLayerEvaluators/DifficultyEvaluator4" unique_id=15306210]
 script = ExtResource("16_ul35v")
 fact_name = "Difficulty"
-min_value = 6
-max_value = 7
+min_value = 3
+max_value = 3
 metadata/_custom_type_script = "uid://dv634egw6mjik"
 
 [node name="DifficultyEvaluator5" type="Node" parent="MusicLayerEvaluators" unique_id=367679570]
@@ -133,8 +132,8 @@ metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
 [node name="BT_WithinRangeInt" type="Node" parent="MusicLayerEvaluators/DifficultyEvaluator5" unique_id=545012417]
 script = ExtResource("16_ul35v")
 fact_name = "Difficulty"
-min_value = 8
-max_value = 9
+min_value = 4
+max_value = 4
 metadata/_custom_type_script = "uid://dv634egw6mjik"
 
 [node name="ApproacherEvaluator1" type="Node" parent="MusicLayerEvaluators" unique_id=1889747730]
@@ -170,7 +169,7 @@ metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
 script = ExtResource("16_ul35v")
 fact_name = "NumShooters"
 min_value = 1
-max_value = 4
+max_value = 2
 metadata/_custom_type_script = "uid://dv634egw6mjik"
 
 [node name="ShooterEvaluator2" type="Node" parent="MusicLayerEvaluators" unique_id=1184910425]
@@ -181,7 +180,7 @@ metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
 [node name="BT_WithinRangeInt" type="Node" parent="MusicLayerEvaluators/ShooterEvaluator2" unique_id=301059727]
 script = ExtResource("16_ul35v")
 fact_name = "NumShooters"
-min_value = 5
+min_value = 3
 max_value = 1000000000
 metadata/_custom_type_script = "uid://dv634egw6mjik"
 

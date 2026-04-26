@@ -4,7 +4,7 @@ extends Node
 signal player_shot
 
 @export var max_ammo: int = 8
-@export var reload_amount: int = 6
+@export var reload_amount: int = 8
 
 var bullet = preload("res://scenes/entity/bullet/player_bullet.tscn")
 var ammo: int

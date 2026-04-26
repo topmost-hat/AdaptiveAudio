@@ -44,8 +44,8 @@ func game_over(survived: float):
 	
 	update_statistics(survived)
 
-func update_health_ui(): health_ui.text = "Health: " + str(WorldState.get_fact("PlayerHealth"))
-func update_ammo_ui(): ammo_ui.text = "Ammo: " + str(WorldState.get_fact("PlayerAmmo"))
+func update_health_ui(): health_ui.text = "Health: " + str(WorldState.get_fact("PlayerHealth")) + "/3"
+func update_ammo_ui(): ammo_ui.text = "Ammo: " + str(WorldState.get_fact("PlayerAmmo")) + "/8"
 func update_statistics(survived: float):
 	seconds_survived.text = "Seconds survived: " + str(survived as int)
 	shots_fired.text = ("Shots fired: "

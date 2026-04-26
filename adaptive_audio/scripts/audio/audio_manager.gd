@@ -68,11 +68,11 @@ func start_music():
 
 func stop_music(): _synced_music_player.set_music_playing(false)
 
-func play_sfx(sfx_name: String):
+func play_sfx(sfx_name: String, cut_off: bool = false):
 	var sfx: AudioStreamPlayer = _sfx_dict[sfx_name]
 	if null == sfx: return
 	
-	if not sfx.playing: sfx.play()
+	if cut_off or not sfx.playing: sfx.play()
 
 func play_calliope(): _calliope_player.play_sfx()
 
