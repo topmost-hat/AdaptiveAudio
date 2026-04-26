@@ -1,14 +1,11 @@
 # AdaptiveAudio
 
 ## Credits
-* Music created using BeepBox by John Nesky
+Music created using BeepBox by John Nesky
+* https://www.beepbox.co
 
-https://www.beepbox.co
+Behavior Tree nodes based on lecture notes by Alexandre Tolstenko
+* https://gameguild.gg/p/ai4games2/week-02
 
-* Behavior Tree nodes based on lecture notes by Alexandre Tolstenko
-
-https://gameguild.gg/p/ai4games2/week-02
-
-* Player movement scripts based on a personal project by Atticus Clark
-
-link n/a
+Player movement scripts based on a personal project by Atticus Clark
+* link n/a
