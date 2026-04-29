@@ -6,6 +6,7 @@ var child: BT_Node
 
 func _ready() -> void:
 	child = get_child(0)
+	assert(null != child, name + " does not have a child BT_Node!")
 
 func evaluate() -> Status:
 	for i: int in iterations:

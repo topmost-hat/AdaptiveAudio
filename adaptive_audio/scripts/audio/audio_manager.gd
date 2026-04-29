@@ -74,6 +74,7 @@ func play_sfx(sfx_name: String, cut_off: bool = false):
 	
 	if cut_off or not sfx.playing: sfx.play()
 
+# charger warning sound needs to be able to have multiple playing at once
 func play_calliope(): _calliope_player.play_sfx()
 
 func get_beat_count() -> int: return _synced_music_player.get_beat_count()

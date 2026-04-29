@@ -23,9 +23,16 @@ var _fade_check: Array[bool]
 
 #region Godot functions
 func _ready() -> void:
+	# synced music player requires a synced stream
 	_sync_stream = stream as AudioStreamSynchronized
+	if null == _sync_stream:
+		push_error("SyncedMusicPlayer stream is not an AudioStreamSynchronized!")
+		queue_free()
+	
+	# used to increase accuracy of playback time calculation
 	_output_latency = AudioServer.get_output_latency()
 	
+	# length of sync stream == length of longest sub-stream
 	_seconds_per_beat = 60.0 / _bpm
 	for i: int in _sync_stream.stream_count:
 		_length = maxf(_length, _sync_stream.get_sync_stream(i).get_length())
@@ -36,6 +43,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if not playing: return
 	
+	# calculate playback time with extra precision
 	_playback_time = (
 		get_playback_position()
 		+ AudioServer.get_time_since_last_mix()

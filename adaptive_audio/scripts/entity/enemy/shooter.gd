@@ -52,17 +52,21 @@ func die():
 
 #region Other functions
 func _on_music_beat(_beat: int):
+	# countdown to next burst
 	burst_beats -= 1
 	if 0 <= burst_beats: return
 	
+	# countdown to next bullet in burst
 	bullet_beats -= 1
 	if 0 <= bullet_beats: return
 	
+	# shoot, then check if the burst is over
 	_shoot()
 	bullet_beats = beats_between_bullets
 	bullets_left -= 1
-	if 1 <= bullets_left: return
+	if 1 <= bullets_left: return # burst is not over
 	
+	# burst is over, reset cooldowns
 	burst_beats = beats_between_bursts
 	bullet_beats = 0
 	bullets_left = bullets_per_burst
@@ -73,6 +77,7 @@ func _shoot():
 	var new_bullet: Bullet = (bullet.instantiate() as Bullet)
 	new_bullet.position = position
 	new_bullet.direction = target.position - position
+	# child of root instead of self so that this dying doesn't delete bullets
 	get_tree().root.add_child(new_bullet)
 
 func _chase_target(delta: float):

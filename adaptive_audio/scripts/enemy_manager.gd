@@ -67,8 +67,7 @@ func _on_music_beat(_beat: int):
 	_spawns_left = d_info.enemies_per_wave
 
 func _on_player_health_changed():
-	if 0 >= WorldState.get_fact("PlayerHealth"):
-		despawn_all()
+	if 0 >= WorldState.get_fact("PlayerHealth"): despawn_all()
 #endregion
 
 #region Spawning functions

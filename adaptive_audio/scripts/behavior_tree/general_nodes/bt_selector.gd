@@ -5,6 +5,7 @@ var children: Array[BT_Node]
 
 func _ready() -> void:
 	children.assign(find_children("*", "BT_Node", false))
+	assert(0 < children.size(), name + " does not have any children BT_Nodes!")
 
 func evaluate() -> Status:
 	for child: BT_Node in children:

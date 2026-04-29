@@ -42,6 +42,8 @@ func die():
 func _on_music_beat(_beat: int):
 	beat_timer -= 1
 	
+	# play a warning sound before charging
+	# warning sounds can overlap if multiple chargers play them at offset times
 	if 2 == beat_timer: AudioManager.play_calliope()
 	elif -1 >= beat_timer:
 		beat_timer = beats_between_charges

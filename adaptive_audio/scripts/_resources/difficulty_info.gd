@@ -24,4 +24,5 @@ func max_enemies_of_type(type: Enemy.Type) -> int:
 		Enemy.Type.SHOOTER: return _max_shooters
 		Enemy.Type.CHARGER: return _max_chargers
 	
+	push_error("Tried to get max of invalid enemy type!")
 	return -1

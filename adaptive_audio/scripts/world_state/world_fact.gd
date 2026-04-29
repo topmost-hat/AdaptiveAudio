@@ -16,3 +16,7 @@ var fact :
 	get: return type_convert(fact, type)
 
 @abstract func reset()
+
+# this is admittedly a very weird and probably overcomplicated setup
+# but it does allow me to add new stuff to WorldState by just adding a new node
+# instead of actually writing new code

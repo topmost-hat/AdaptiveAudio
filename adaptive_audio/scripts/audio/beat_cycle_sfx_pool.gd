@@ -6,8 +6,10 @@ var _pool: Array[AudioStreamPlayer]
 var _current_index: int = 0
 
 func _ready() -> void:
-	if null == stream: queue_free()
+	assert(null != stream, name + " has a null stream!")
 	
+	# since this is basically just for the charger warning
+	# sounds, rotating the pool on beat should work fine
 	AudioManager.music_beat.connect(_on_music_beat)
 	for i: int in _num_in_pool:
 		var player: AudioStreamPlayer = AudioStreamPlayer.new()

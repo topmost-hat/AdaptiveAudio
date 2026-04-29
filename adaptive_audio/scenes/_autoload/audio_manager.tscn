@@ -225,16 +225,4 @@ script = ExtResource("7_tyuwv")
 _num_in_pool = 8
 metadata/_custom_type_script = "uid://dp84vhbiqtjly"
 
-[node name="PlayerHealthEvaluator1" type="Node" parent="." unique_id=1464987158]
-script = ExtResource("3_jnulk")
-metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
-
-[node name="PlayerHealthEvaluator2" type="Node" parent="." unique_id=975527485]
-script = ExtResource("3_jnulk")
-metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
-
-[node name="PlayerHealthEvaluator3" type="Node" parent="." unique_id=2119602057]
-script = ExtResource("3_jnulk")
-metadata/_custom_type_script = "uid://dt4l6t5ms2hsd"
-
 [connection signal="music_beat" from="SyncedMusicPlayer" to="." method="_on_music_beat"]

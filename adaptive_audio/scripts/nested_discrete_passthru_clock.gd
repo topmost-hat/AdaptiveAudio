@@ -15,3 +15,7 @@ func tick():
 		if 0 >= clocks[i]: timeout.emit(i)
 		else: return
 	clocks.assign(default_delays)
+
+# this isn't used anywhere. i was hoping to use it for Shooter and
+# EnemyManager, but they needed something slightly more complex
+# and it was easier to just leave it within those classes
